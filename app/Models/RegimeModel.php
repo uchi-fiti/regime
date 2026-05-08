@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class RegimeModel extends Model
+{
+    protected $table = 'regime';
+    protected $primaryKey = 'id';
+    protected $useAutoIncrement = true;
+    protected $returnType = 'array';
+    protected $useSoftDeletes = false;
+    protected $protectFields = true;
+    protected $allowedFields = [
+        'label',
+        'pourcentage_viande',
+        'pourcentage_poisson',
+        'pourcentage_volaille',
+        'variation_poids_journalier',
+        'prix_journalier',
+    ];
+
+    protected bool $allowEmptyInserts = false;
+    protected bool $updateOnlyChanged = true;
+
+    protected array $casts = [];
+    protected array $castHandlers = [];
+
+    protected $useTimestamps = false;
+}
