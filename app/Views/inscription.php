@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -91,7 +91,7 @@
       </form>
 
       <p style="text-align:center;margin-top:2rem;font-size:0.875rem;color:#666">
-        Déjà inscrit? <a href="index.php" style="color:#6366f1;text-decoration:none;font-weight:600">Retourner à l'accueil</a>
+        Déjà inscrit? <a href="/connection" style="color:#6366f1;text-decoration:none;font-weight:600">se connecter</a>
       </p>
     </div>
   </div>
@@ -183,7 +183,7 @@ form.addEventListener('submit', async (e) => {
       
       // Redirection après 2 secondes
       setTimeout(() => {
-        window.location.href = 'information.php';
+        window.location.href = 'inform/connection';
       }, 2000);
     } catch (error) {
       console.error('Erreur:', error);

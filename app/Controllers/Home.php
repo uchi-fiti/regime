@@ -19,8 +19,13 @@ class Home extends BaseController
             // Get result
             $result = $query->getRow();
 
+            /*
             echo "Database connection successful!<br>";
             echo "Result: " . $result->test;
+            */
+            
+            // Load the view
+            return view('index');
 
         } catch (\Throwable $e) {
             echo "Database connection failed!<br>";

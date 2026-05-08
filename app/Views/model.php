@@ -1,3 +1,7 @@
+<?php
+$page = $_GET['page']??'/home'; 
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -44,13 +48,12 @@
       <a href="#avis">Avis</a>
     </nav>
     <div class="nav-actions">
-      <a href="connection.html" class="btn-link">Connexion</a>
-      <a href="inscription.html" class="btn btn-primary btn-sm">S'inscrire</a>
+      <a href="inscription.html" class="btn btn-primary btn-sm">Déconnexion</a>
     </div>
   </div>
 </header>
 
-
+<?php //include("<?= $page ?>"); ?>
 
 <footer>
   <div class="container">

@@ -9,30 +9,35 @@ const imcValue = document.getElementById('imc-value');
 const imcCat = document.getElementById('imc-cat');
 const genreToggle = document.getElementById('genre-toggle');
 
-function updateImc(){
-  const t = +tailleEl.value, p = +poidsEl.value;
-  tailleVal.textContent = t;
-  poidsVal.textContent = p;
-  const m = t/100;
-  const imc = p/(m*m);
-  imcValue.textContent = imc.toFixed(1);
-  let label='Corpulence normale', cls='normal';
-  if (imc < 18.5){ label='Insuffisance pondérale'; cls='warn'; }
-  else if (imc < 25){ label='Corpulence normale'; cls='normal'; }
-  else if (imc < 30){ label='Surpoids'; cls='warn'; }
-  else { label='Obésité'; cls='danger'; }
-  imcCat.textContent = label;
-  imcCat.className = 'imc-cat '+cls;
+// Initialiser IMC seulement si les éléments existent
+if (tailleEl && poidsEl && imcValue && imcCat) {
+  function updateImc(){
+    const t = +tailleEl.value, p = +poidsEl.value;
+    tailleVal.textContent = t;
+    poidsVal.textContent = p;
+    const m = t/100;
+    const imc = p/(m*m);
+    imcValue.textContent = imc.toFixed(1);
+    let label='Corpulence normale', cls='normal';
+    if (imc < 18.5){ label='Insuffisance pondérale'; cls='warn'; }
+    else if (imc < 25){ label='Corpulence normale'; cls='normal'; }
+    else if (imc < 30){ label='Surpoids'; cls='warn'; }
+    else { label='Obésité'; cls='danger'; }
+    imcCat.textContent = label;
+    imcCat.className = 'imc-cat '+cls;
+  }
+  tailleEl.addEventListener('input', updateImc);
+  poidsEl.addEventListener('input', updateImc);
+  if (genreToggle) {
+    genreToggle.addEventListener('click', e=>{
+      const b = e.target.closest('button[data-g]');
+      if(!b) return;
+      genreToggle.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+    });
+  }
+  updateImc();
 }
-tailleEl.addEventListener('input', updateImc);
-poidsEl.addEventListener('input', updateImc);
-genreToggle.addEventListener('click', e=>{
-  const b = e.target.closest('button[data-g]');
-  if(!b) return;
-  genreToggle.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');
-});
-updateImc();
 
 // ---- Regimes ----
 const regimes = [
@@ -52,9 +57,8 @@ document.getElementById('regimes-grid').innerHTML = regimes.map(r=>`
       <li>${ck} ${r.poisson}% poisson</li>
       <li>${ck} ${r.volaille}% volaille</li>
       <li>${ck} Suivi nutritionnel</li>
-      <li>${ck} Export PDF</li>
     </ul>
-    <button>Choisir ce régime</button>
+    <a href="/#cta"><button>Choisir ce régime</button></a>
   </div>
 `).join('');
 
@@ -73,47 +77,51 @@ document.getElementById('reviews').innerHTML = reviews.map(r=>`
 `).join('');
 
 // ---- Profile / Wallet ----
-let balance = 124.5;
-let history = [
-  { code:'BIENVENUE25', amount:25, date:'12/04/2026' },
-  { code:'PARRAIN10', amount:10, date:'28/03/2026' },
-];
-const codes = { GOLD15:15, NUTRI50:50, ETE2026:20 };
 const balanceEl = document.getElementById('balance');
 const histEl = document.getElementById('history');
 const msgEl = document.getElementById('msg');
 const codeForm = document.getElementById('code-form');
 const codeInput = document.getElementById('code-input');
 
-function renderHistory(){
-  histEl.innerHTML = history.map(h=>`
-    <li>
-      <div class="item"><svg><use href="#i-check"/></svg>
-        <span class="code">${h.code}</span>
-        <span class="date">${h.date}</span>
-      </div>
-      <span class="amt">+${h.amount} €</span>
-    </li>
-  `).join('');
-}
-function renderBalance(){ balanceEl.textContent = balance.toFixed(2); }
-function showMsg(type, text){
-  msgEl.innerHTML = `<div class="msg ${type}">${text}</div>`;
-  setTimeout(()=>{ msgEl.innerHTML=''; }, 4000);
-}
-codeForm.addEventListener('submit', e=>{
-  e.preventDefault();
-  const key = codeInput.value.trim().toUpperCase();
-  if (!key) return;
-  if (codes[key]){
-    const amount = codes[key];
-    balance = +(balance + amount).toFixed(2);
-    history.unshift({ code:key, amount, date:new Date().toLocaleDateString('fr-FR') });
-    renderBalance(); renderHistory();
-    showMsg('success', `+${amount} € crédités sur votre porte-monnaie !`);
-    codeInput.value='';
-  } else {
-    showMsg('error', 'Code invalide ou expiré.');
+// Initialiser le wallet seulement si les éléments existent
+if (balanceEl && histEl && codeForm && msgEl) {
+  let balance = 124.5;
+  let history = [
+    { code:'BIENVENUE25', amount:25, date:'12/04/2026' },
+    { code:'PARRAIN10', amount:10, date:'28/03/2026' },
+  ];
+  const codes = { GOLD15:15, NUTRI50:50, ETE2026:20 };
+
+  function renderHistory(){
+    histEl.innerHTML = history.map(h=>`
+      <li>
+        <div class="item"><svg><use href="#i-check"/></svg>
+          <span class="code">${h.code}</span>
+          <span class="date">${h.date}</span>
+        </div>
+        <span class="amt">+${h.amount} €</span>
+      </li>
+    `).join('');
   }
-});
-renderBalance(); renderHistory();
+  function renderBalance(){ balanceEl.textContent = balance.toFixed(2); }
+  function showMsg(type, text){
+    msgEl.innerHTML = `<div class="msg ${type}">${text}</div>`;
+    setTimeout(()=>{ msgEl.innerHTML=''; }, 4000);
+  }
+  codeForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const key = codeInput.value.trim().toUpperCase();
+    if (!key) return;
+    if (codes[key]){
+      const amount = codes[key];
+      balance = +(balance + amount).toFixed(2);
+      history.unshift({ code:key, amount, date:new Date().toLocaleDateString('fr-FR') });
+      renderBalance(); renderHistory();
+      showMsg('success', `+${amount} € crédités sur votre porte-monnaie !`);
+      codeInput.value='';
+    } else {
+      showMsg('error', 'Code invalide ou expiré.');
+    }
+  });
+  renderBalance(); renderHistory();
+}
