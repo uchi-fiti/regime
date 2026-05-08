@@ -1,22 +1,22 @@
 create database regime_db;
 use regime_db;
 
--- 1. Table des objectifs (Augmenter, Réduire, IMC idéal) [cite: 26, 27, 28, 29]
+-- 1. Table des objectifs (Augmenter, Réduire, IMC idéal)
 CREATE TABLE objectif (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB;
 
--- 2. Table des utilisateurs (Infos générales) [cite: 23, 24]
+-- 2. Table des utilisateurs (Infos générales)
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     mail VARCHAR(100) NOT NULL UNIQUE,
-    genre VARCHAR(10), -- 'Homme' ou 'Femme' [cite: 18]
+    genre VARCHAR(10), -- 'Homme' ou 'Femme'
     mdp VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB;
 
--- 3. Informations de santé [cite: 18, 24]
+-- 3. Informations de santé
 -- Note: 'valeur_objectif' représente le poids cible ou la variation souhaitée
 CREATE TABLE user_health_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,8 +30,8 @@ CREATE TABLE user_health_info (
     FOREIGN KEY (id_objectif) REFERENCES objectif(id)
 ) ENGINE=InnoDB;
 
--- 4. Table des régimes [cite: 42, 50, 51]
--- 'variation_poids_journalier' permet de calculer la durée nécessaire [cite: 30, 44]
+-- 4. Table des régimes
+-- 'variation_poids_journalier' permet de calculer la durée nécessaire
 CREATE TABLE regime (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(100) NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE regime (
     prix_journalier DECIMAL(10,2) NOT NULL
 ) ENGINE=InnoDB;
 
--- 5. Activités sportives [cite: 45, 62]
+-- 5. Activités sportives
 CREATE TABLE sport (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(100) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE table_imc (
     label VARCHAR(50) NOT NULL -- ex: 'Normal', 'Surpoids'
 ) ENGINE=InnoDB;
 
--- 7. Codes de recharge pour le porte-monnaie [cite: 32, 46, 60]
+-- 7. Codes de recharge pour le porte-monnaie
 CREATE TABLE code (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(20) NOT NULL UNIQUE,
@@ -65,7 +65,7 @@ CREATE TABLE code (
     statut INT DEFAULT 0 -- 0: non utilisé, 1: utilisé
 ) ENGINE=InnoDB;
 
--- 8. Abonnements (Option Gold) [cite: 35, 36]
+-- 8. Abonnements (Option Gold)
 CREATE TABLE abonnement (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(50) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE user_abonnement (
     FOREIGN KEY (id_abonnement) REFERENCES abonnement(id)
 ) ENGINE=InnoDB;
 
--- 10. Mouvements du porte-monnaie [cite: 32]
+-- 10. Mouvements du porte-monnaie
 CREATE TABLE mvt_portemonnaie (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT NOT NULL,
