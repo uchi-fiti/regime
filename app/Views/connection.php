@@ -77,7 +77,7 @@
 
       <div style="margin-top:2rem;border-top:1px solid #eee;padding-top:2rem;text-align:center">
         <p style="font-size:0.875rem;color:#666;margin:0">Pas encore de compte?</p>
-        <a href="inscription.php" class="btn btn-outline" style="margin-top:1rem;width:100%;display:block">Créer un compte</a>
+        <a href="/inscription" class="btn btn-outline" style="margin-top:1rem;width:100%;display:block">Créer un compte</a>
       </div>
 
       <p style="text-align:center;margin-top:2rem;font-size:0.875rem;color:#999">

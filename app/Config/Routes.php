@@ -13,5 +13,6 @@ $routes->get('/connection', 'Auth::connection');
 $routes->get('/information', 'Auth::information');
 $routes->get('/choose-obj', 'Auth::chooseObj');
 $routes->get('/model', 'Page::model');
+$routes->get('/home', 'Page::home');
 
 

@@ -50,3 +50,408 @@ Stack trace:
 #7 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 #8 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #9 {main}
+CRITICAL - 2026-05-08 20:21:46 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:23:01 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:23:03 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:23:03 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:23:42 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:23:47 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:25:58 --> ErrorException: include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= home.php ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:27:43 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:27:45 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:13 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:14 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:14 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:14 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:15 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:16 --> ErrorException: include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(&lt;?= /home ?&gt;): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:36 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:37 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:28:38 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:29:08 --> ErrorException: include(/inscription): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/inscription): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:30:34 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:30:35 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:30:35 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:30:35 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:30:35 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:31:49 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:31:50 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-08 20:31:50 --> ErrorException: include(/home): Failed to open stream: No such file or directory
+[Method: GET, Route: model]
+in APPPATH\Views\model.php on line 56.
+ 1 APPPATH\Views\model.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(/home): Failed to open stream: No such file or directory', 'C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php', 56)
+ 2 APPPATH\Views\model.php(56): include()
+ 3 SYSTEMPATH\View\View.php(240): include('C:\\Users\\WINDOWS 10\\Documents\\ITU\\S4\\SI\\Regime\\regime\\app\\Views\\model.php')
+ 4 SYSTEMPATH\View\View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('model', [], true)
+ 6 APPPATH\Controllers\Page.php(12): view('model')
+ 7 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Page->model()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Page))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

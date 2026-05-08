@@ -11,4 +11,9 @@ class Page extends BaseController
     {
         return view('model');
     }
+
+     public function home()
+    {
+        return view('home');
+    }
 }

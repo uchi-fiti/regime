@@ -35,4 +35,6 @@ class Auth extends BaseController
     {
         return view('choose_obj');
     }
+
+   
 }
