@@ -24,3 +24,29 @@ Stack trace:
 #7 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 #8 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #9 {main}
+ERROR - 2026-05-08 18:30:52 --> Error connecting to the database: mysqli_sql_exception: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'regime_db', 3306, '', 0)
+#1 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\app\Controllers\Home.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1 AS tes...')
+#4 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(951): App\Controllers\Home->index()
+#5 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\app\Controllers\Home.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1 AS tes...')
+#3 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(951): App\Controllers\Home->index()
+#4 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\Users\WINDOWS 10\Documents\ITU\S4\SI\Regime\regime\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
