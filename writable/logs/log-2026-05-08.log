@@ -1,0 +1,26 @@
+ERROR - 2026-05-08 11:19:49 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'regime_db' in /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'regime_db', 3306, '', 0)
+#1 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/app/Controllers/Home.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1 AS tes...')
+#4 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(951): App\Controllers\Home->index()
+#5 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'regime_db' in /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/app/Controllers/Home.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1 AS tes...')
+#3 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(951): App\Controllers\Home->index()
+#4 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 /Users/uchi_fitiavana/S4/MrRojo/Projets/regime/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
