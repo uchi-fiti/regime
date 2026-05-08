@@ -16,9 +16,9 @@
 
 #### Étape 1 : Créer une branche pour votre feature
 ```bash
-# Mettre à jour la branche principale
-git checkout main
-git pull origin main
+# Mettre à jour la branche dev
+git checkout dev
+git pull origin dev
 
 # Créer et basculer sur une nouvelle branche
 git checkout -b feature/nom-de-la-feature
@@ -52,14 +52,8 @@ git push origin feature/nom-de-la-feature
 ```
 
 #### Étape 5 : Créer une Pull Request et merger
-```bash
-# Après approbation de la PR, merger en local
-git checkout main
-git pull origin main
-git merge feature/nom-de-la-feature
-git push origin main
-```
-#### Ou aller dans github (Meilleur pratique)
+
+####  aller dans github (Meilleur pratique)
 ---
 
 ## Branches
