@@ -12,6 +12,7 @@ $routes->get('/inscription', 'Auth::inscription');
 $routes->get('/connection', 'Auth::connection');
 $routes->get('/information', 'Auth::information');
 $routes->get('/choose-obj', 'Auth::chooseObj');
+// Routes pour les pages principales
 $routes->get('/model', 'Page::model');
 $routes->get('/home', 'Page::home');
 
