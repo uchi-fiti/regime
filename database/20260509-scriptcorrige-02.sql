@@ -88,5 +88,8 @@ create table prix_regime (
     id_regime int,
     jour_debut int,
     jour_fin int,
-    prix_journalier DECIMAL(10,2)
+    prix_journalier DECIMAL(10,2),
+    FOREIGN KEY (id_regime) REFERENCES regime(id)
 );
+
+alter table user add column role varchar(100);
