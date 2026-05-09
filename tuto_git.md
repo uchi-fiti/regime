@@ -117,5 +117,3 @@ git branch -m nouveau-nom
 git branch -m ancien-nom nouveau-nom
 ```
 
----
-
