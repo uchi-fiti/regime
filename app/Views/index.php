@@ -38,6 +38,7 @@
     </a>
     <nav class="nav-links">
       <a href="#imc">Mon IMC</a>
+      <a href="#objectifs">Objectifs</a>
       <a href="#regimes">Régimes</a>
       <a href="#activite">Activités</a>
       <a href="#avis">Avis</a>
@@ -118,7 +119,7 @@
   </div>
 </section>
 
-<section class="bg-soft">
+<section id="objectifs" class="bg-soft">
   <div class="container-narrow">
     <div class="section-title">
       <span class="eyebrow">Étape 2</span>
