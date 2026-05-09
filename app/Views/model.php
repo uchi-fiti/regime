@@ -43,7 +43,7 @@ $page = $page ?? 'home';
     </a>
     <nav class="nav-links">
       <a href="<?= site_url('model') ?>">Accueil</a>
-      <a href="<?= site_url('model?page=regimes') ?>">Régimes</a>
+      <a href="<?= site_url('model?page=recommandation') ?>">Régimes</a>
       <a href="<?= site_url('model?page=gold') ?>">Gold</a>
       <a href="<?= site_url('model?page=profil') ?>">Mon profil</a>
     </nav>
