@@ -1,5 +1,6 @@
 <?php
-$page = $_GET['page']??'/home'; 
+// La variable $page est passée par le contrôleur
+$page = $page ?? 'home';
 ?>
 
 <!doctype html>
@@ -41,19 +42,19 @@ $page = $_GET['page']??'/home';
       KomGem
     </a>
     <nav class="nav-links">
-      <a href="#imc">Mon IMC</a>
-      <a href="#regimes">Régimes</a>
-      <a href="#gold">Gold</a>
-      <a href="#profil">Mon profil</a>
-      <a href="#avis">Avis</a>
+      <a href="<?= site_url('model') ?>">Accueil</a>
+      <a href="<?= site_url('model?page=regimes') ?>">Régimes</a>
+      <a href="<?= site_url('model?page=gold') ?>">Gold</a>
+      <a href="<?= site_url('model?page=profil') ?>">Mon profil</a>
     </nav>
     <div class="nav-actions">
-      <a href="inscription.html" class="btn btn-primary btn-sm">Déconnexion</a>
+      <a href="<?= site_url('connection') ?>" class="btn btn-primary btn-sm">Déconnexion</a>
     </div>
   </div>
 </header>
 
-<?php //include("<?= $page ?>"); ?>
+<!-- include de page -->
+<?= view($page) ?>
 
 <footer>
   <div class="container">
@@ -72,6 +73,6 @@ $page = $_GET['page']??'/home';
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="<?= base_url('app.js') ?>"></script>
 </body>
 </html>
