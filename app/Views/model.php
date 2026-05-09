@@ -48,7 +48,7 @@ $page = $page ?? 'home';
       <a href="<?= site_url('model?page=profil') ?>">Mon profil</a>
     </nav>
     <div class="nav-actions">
-      <a href="<?= site_url('connection') ?>" class="btn btn-primary btn-sm">Déconnexion</a>
+      <a href="/" class="btn btn-primary btn-sm">Déconnexion</a>
     </div>
   </div>
 </header>
