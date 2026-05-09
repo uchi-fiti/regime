@@ -62,7 +62,7 @@ create table abonnement (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(50) NOT NULL,
     prix DECIMAL(10,2) NOT NULL,
-    remise DECIMAL(5,2) DEFAULT
+    remise DECIMAL(5,2)
 );
 
 CREATE TABLE user_abonnement (
@@ -87,6 +87,6 @@ create table prix_regime (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_regime int,
     jour_debut int,
-    jour_fin fin,
+    jour_fin int,
     prix_journalier DECIMAL(10,2)
 );
