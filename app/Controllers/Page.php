@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserHealthInfoModel;
 
 class Page extends BaseController
 {
@@ -17,4 +18,5 @@ class Page extends BaseController
         
         return view('model', ['page' => $page]);
     }
+
 }

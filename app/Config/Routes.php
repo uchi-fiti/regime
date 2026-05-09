@@ -16,4 +16,7 @@ $routes->get('/choose-obj', 'Auth::chooseObj');
 $routes->get('/model', 'Page::model');
 $routes->get('/home', 'Page::home');
 
+// Route pour les recommandations
+$routes->get('/test', 'RecommandationController::generer');
+
 
