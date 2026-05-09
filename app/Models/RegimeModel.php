@@ -14,11 +14,11 @@ class RegimeModel extends Model
     protected $protectFields = true;
     protected $allowedFields = [
         'label',
+        'photo',
         'pourcentage_viande',
         'pourcentage_poisson',
         'pourcentage_volaille',
         'variation_poids_journalier',
-        'prix_journalier',
     ];
 
     protected bool $allowEmptyInserts = false;

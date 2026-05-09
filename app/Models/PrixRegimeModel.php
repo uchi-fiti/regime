@@ -4,20 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class PrixRegimeModel extends Model
 {
-    protected $table = 'user';
+    protected $table = 'prix_regime';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
-        'nom',
-        'mail',
-        'genre',
-        'mdp',
-        'role',
+        'id_regime',
+        'jour_debut',
+        'jour_fin',
+        'prix_journalier',
     ];
 
     protected bool $allowEmptyInserts = false;
