@@ -26,4 +26,8 @@ class PrixRegimeModel extends Model
     protected array $castHandlers = [];
 
     protected $useTimestamps = false;
+
+    public function getByRegime($id_regime){
+        return $this->where('id_regime', $id_regime)->findAll();
+    }
 }
