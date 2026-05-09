@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="hero-img-wrap">
-      <img src="assets/hero-meal.jpg" alt="Repas équilibré KomGem" width="1536" height="1152" class="hero-img"/>
+      <img src="<?= base_url('assets/hero-meal.jpg') ?>" alt="Repas équilibré KomGem" width="1536" height="1152" class="hero-img"/>
       <div class="float-card bl">
         <div class="float-icon green"><svg style="width:24px;height:24px"><use href="#i-trend-down"/></svg></div>
         <div><div class="v">-7 kg</div><div class="l">en moyenne / 8 sem.</div></div>
