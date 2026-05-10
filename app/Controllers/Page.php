@@ -15,8 +15,9 @@ class Page extends BaseController
         // Validation pour éviter les injections
         $allowed = ['regimes', 'profil', 'gold','recommandation'];
         $page = in_array($page, $allowed) ? $page : 'home';
+        $realpage = "front-office/{$page}";
         
-        return view('model', ['page' => $page]);
+        return view('model', ['page' => $realpage]);
     }
 
 }
