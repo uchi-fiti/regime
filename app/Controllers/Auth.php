@@ -9,7 +9,7 @@ class Auth extends BaseController
      */
     public function inscription()
     {
-        return view('inscription');
+        return view('front-office/inscription');
     }
 
     /**
@@ -17,7 +17,7 @@ class Auth extends BaseController
      */
     public function connection()
     {
-        return view('connection');
+        return view('front-office/connection');
     }
 
     /**
@@ -25,7 +25,7 @@ class Auth extends BaseController
      */
     public function information()
     {
-        return view('information');
+        return view('front-office/information');
     }
 
     /**
@@ -33,7 +33,7 @@ class Auth extends BaseController
      */
     public function chooseObj()
     {
-        return view('choose_obj');
+        return view('front-office/choose_obj');
     }
 
    
