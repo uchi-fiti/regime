@@ -68,7 +68,7 @@ $recommendedWeight = $recommendedWeight ?? 66;
           <span class="error-msg" id="target-error"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%">Let's go make you filter 🚀</button>
+        <button type="submit" class="btn btn-primary" style="width:100%">Voir mes recommandations 🚀</button>
       </form>
     </div>
 
