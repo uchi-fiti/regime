@@ -85,6 +85,8 @@
           <button type="submit" class="btn btn-primary" style="width:100%">Confirmer mon achat</button>
         </form>
 
+        <a class="btn btn-outline" style="width:100%;margin-top:0.75rem" href="<?= site_url('model?page=home') ?>">Retour a l'accueil</a>
+
         <a class="btn btn-outline" style="width:100%;margin-top:0.75rem" href="<?= site_url('confirmation-achat/pdf') ?>?regime=<?= (int) $regime['id'] ?>&sport=<?= $sport ? (int) $sport['id'] : 0 ?>">Exporter PDF</a>
       </div>
 
