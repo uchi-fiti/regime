@@ -12,6 +12,14 @@
 </head>
 <body>
 
+<?php
+$imcAdjective = $imcAdjective ?? 'Corpulence normale';
+$imcValue = $imcValue ?? 24.2;
+$weight = $weight ?? 70;
+$height = $height ?? 170;
+$recommendedWeight = $recommendedWeight ?? 66;
+?>
+
 <!-- Reusable inline SVG icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -31,7 +39,7 @@
     <div style="text-align:center;margin-bottom:3rem">
       <div style="display:inline-block;padding:1rem 2rem;background:#f0f4ff;border-radius:12px;margin-bottom:1rem">
         <div style="font-size:0.875rem;color:#666;margin-bottom:0.5rem">Votre corpulence</div>
-        <div style="font-size:1.5rem;font-weight:700;color:#6366f1" id="imc-category">Corpulence normale</div>
+        <div style="font-size:1.5rem;font-weight:700;color:#6366f1" id="imc-category"><?= htmlspecialchars($imcAdjective, ENT_QUOTES, 'UTF-8') ?></div>
       </div>
     </div>
 
@@ -60,7 +68,7 @@
           <span class="error-msg" id="target-error"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%">Let's go make you filter 🚀</button>
+        <button type="submit" class="btn btn-primary" style="width:100%">Voir mes recommandations 🚀</button>
       </form>
     </div>
 
@@ -146,13 +154,16 @@ const targetInputSection = document.getElementById('target-input-section');
 const recommendationBox = document.getElementById('recommendation-box');
 const objectiveForm = document.getElementById('objective-form');
 const targetValue = document.getElementById('target-value');
+const saveObjectiveUrl = "<?= site_url('health/objective') ?>";
+let selectedObjective = null;
 
 // Données d'exemple (normalement viendrait du serveur)
 let userData = {
-  imc: 24.2,
-  weight: 70,
-  height: 170,
-  recommendedWeight: 66 // IMC idéal ~22-24
+  imc: <?= json_encode($imcValue) ?>,
+  weight: <?= json_encode($weight) ?>,
+  height: <?= json_encode($height) ?>,
+  imcCategory: <?= json_encode($imcAdjective) ?>,
+  recommendedWeight: <?= json_encode($recommendedWeight) ?>
 };
 
 // Déterminer la catégorie IMC
@@ -211,7 +222,7 @@ const objectives = [
 ];
 
 // Afficher la catégorie IMC
-document.getElementById('imc-category').textContent = getImcCategory(userData.imc);
+document.getElementById('imc-category').textContent = userData.imcCategory || getImcCategory(userData.imc);
 
 // Créer les boutons objectifs
 objectives.forEach(obj => {
@@ -225,6 +236,7 @@ objectives.forEach(obj => {
   `;
   
   btn.addEventListener('click', () => {
+    selectedObjective = obj;
     // Déselectionner les autres
     document.querySelectorAll('.objective-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
@@ -268,6 +280,12 @@ objectiveForm.addEventListener('submit', async (e) => {
   targetValue.classList.remove('error');
   
   // Validation
+  if (!selectedObjective) {
+    errorEl.textContent = 'Veuillez choisir un objectif.';
+    errorEl.classList.add('show');
+    return;
+  }
+
   if (!targetVal || targetVal < 20 || targetVal > 300) {
     errorEl.textContent = 'Veuillez entrer une valeur valide (20-300 kg)';
     errorEl.classList.add('show');
@@ -276,14 +294,30 @@ objectiveForm.addEventListener('submit', async (e) => {
   }
   
   try {
-    // Simuler un appel AJAX / API
-    console.log({
-      objective: document.querySelector('.objective-btn.selected .objective-title').textContent,
-      targetWeight: targetVal
+    const response = await fetch(saveObjectiveUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        objective_label: selectedObjective.title,
+        objective_key: selectedObjective.id,
+        target_value: targetVal
+      })
     });
-    
-    // Redirection
-    window.location.href = 'index.php#regimes';
+
+    const result = await response.json();
+    if (response.ok && result.status === 'ok') {
+      window.location.href = result.redirect || 'index.php#regimes';
+      return;
+    }
+
+    if (result.errors && result.errors.target_value) {
+      errorEl.textContent = result.errors.target_value;
+      errorEl.classList.add('show');
+      targetValue.classList.add('error');
+    } else {
+      errorEl.textContent = 'Impossible d\'enregistrer votre objectif.';
+      errorEl.classList.add('show');
+    }
   } catch (error) {
     console.error('Erreur:', error);
   }

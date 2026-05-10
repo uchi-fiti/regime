@@ -9,8 +9,19 @@ class RecommandationController extends BaseController {
     
     public function generer() {
         $modelHealth = new UserHealthInfoModel();
+        $user = session()->get('user');
 
-        $info = $modelHealth->find(1);
+        if (! $user || empty($user['id'])) {
+            return view('test', [
+                'infos' => [],
+                'recommandations' => []
+            ]);
+        }
+
+        $info = $modelHealth
+            ->where('id_user', $user['id'])
+            ->orderBy('date_info', 'desc')
+            ->first();
         
         if (!$info) {
             return view('test', [

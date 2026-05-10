@@ -36,7 +36,18 @@ class Auth extends BaseController
      */
     public function chooseObj()
     {
-        return view('front-office/choose_obj');
+        $health = session()->get('user_health') ?? [];
+
+        $imcValue = $health['imc'] ?? 24.2;
+        $height = $health['height'] ?? 170;
+
+        return view('front-office/choose_obj', [
+            'imcAdjective' => $health['adjective'] ?? 'Corpulence normale',
+            'imcValue' => $imcValue,
+            'weight' => $health['weight'] ?? 70,
+            'height' => $height,
+            'recommendedWeight' => $health['recommended_weight'] ?? $this->calculateRecommendedWeight($imcValue, $height),
+        ]);
     }
 
     /**
@@ -143,16 +154,28 @@ class Auth extends BaseController
             'role' => 'user',
         ];
 
-        if (! $model->insert($insertData)) {
+        $userId = $model->insert($insertData);
+        if (! $userId) {
             return $this->response->setStatusCode(500)->setJSON([
                 'status' => 'error',
                 'message' => 'Impossible de creer le compte.',
             ]);
         }
 
+        session()->set([
+            'user' => [
+                'id' => $userId,
+                'nom' => $insertData['nom'],
+                'mail' => $insertData['mail'],
+                'genre' => $insertData['genre'],
+                'role' => $insertData['role'],
+            ],
+        ]);
+
         return $this->response->setJSON([
             'status' => 'ok',
             'message' => 'Compte cree avec succes.',
+            'redirect' => site_url('information'),
         ]);
     }
 
@@ -169,6 +192,23 @@ class Auth extends BaseController
         }
 
         return $this->request->getPost();
+    }
+
+    private function calculateRecommendedWeight(float $imc, float $heightCm): float
+    {
+        $heightM = $heightCm / 100;
+        if ($heightM <= 0.0) {
+            return 0.0;
+        }
+
+        $idealImc = $imc;
+        if ($idealImc < 18.0) {
+            $idealImc = 18.0;
+        } elseif ($idealImc > 25.0) {
+            $idealImc = 25.0;
+        }
+
+        return round($idealImc * ($heightM * $heightM), 1);
     }
 
    
