@@ -19,13 +19,13 @@ class RecommandationController extends BaseController {
             ]);
         }
 
-        $donneesPatient = [
+        $infos = [
             'id_user' => $info['id_user'],
             'poids' => $info['poids'],
             'valeur_objectif' => $info['valeur_objectif']
         ];
 
-        $recommandations = $modelHealth->genererRecommandations($donneesPatient);
+        $recommandations = $modelHealth->genererRecommandations($infos);
         
         return view('test', [
             // 'page' => 'test', 

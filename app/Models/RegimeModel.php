@@ -4,6 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\PrixRegimeModel;
+use App\Models\UserAbonnement;
+
 
 class RegimeModel extends Model
 {
@@ -47,15 +49,26 @@ class RegimeModel extends Model
         return ceil(abs($objectif) / $variation);
     }
 
-    public function calcPrixRegime($idRegime, $duree){
+    public function calcPrixRegime($idRegime, $duree, $idUser){
         $ppr = new PrixRegimeModel();
         $plage = $ppr->where('id_regime', $idRegime)
                     ->where('jour_debut <=', $duree)
                     ->where('jour_fin >=', $duree)
                     ->first();
-        
+
+        $userAbo = new UserAbonnementModel();
+        $abonnements = $userAbo->getAboByUser($idUser);
+        $remise = 1;
+        if ($abonnements) {
+            foreach ($abonnements as $abo) {
+                $remise *= (1 - $abo['remise']);
+            }
+        } else {
+            $remise = 0;
+        }
+
         if ($plage) {
-            return $plage['prix_journalier'] * $duree;
+            return $plage['prix_journalier'] * $duree * $remise;
         }
         return 0;
     }

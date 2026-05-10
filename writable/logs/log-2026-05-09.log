@@ -126,3 +126,394 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
 11 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
 12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-05-09 15:47:51 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 53.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 15:49:19 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 53.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 15:51:43 --> Error: Cannot use object of type App\Models\UserHealthInfoModel as array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 36.
+ 1 APPPATH/Models/UserHealthInfoModel.php(53): App\Models\UserHealthInfoModel->genererRecommandations()
+ 2 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 15:51:44 --> Error: Cannot use object of type App\Models\UserHealthInfoModel as array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 36.
+ 1 APPPATH/Models/UserHealthInfoModel.php(53): App\Models\UserHealthInfoModel->genererRecommandations()
+ 2 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 15:54:16 --> Error: Call to a member function genererRecommandations() on array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 59.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 15:54:17 --> Error: Call to a member function genererRecommandations() on array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 59.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:02:47 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:02:48 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:12:25 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:18:31 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:18:32 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:18:32 --> Error: Call to undefined function App\Models\genererRecommandations()
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 64.
+ 1 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:21:51 --> Error: Cannot use object of type App\Models\UserHealthInfoModel as array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 36.
+ 1 APPPATH/Models/UserHealthInfoModel.php(78): App\Models\UserHealthInfoModel->genererRecommandations()
+ 2 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:21:52 --> Error: Cannot use object of type App\Models\UserHealthInfoModel as array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 36.
+ 1 APPPATH/Models/UserHealthInfoModel.php(78): App\Models\UserHealthInfoModel->genererRecommandations()
+ 2 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 16:21:53 --> Error: Cannot use object of type App\Models\UserHealthInfoModel as array
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 36.
+ 1 APPPATH/Models/UserHealthInfoModel.php(78): App\Models\UserHealthInfoModel->genererRecommandations()
+ 2 APPPATH/Controllers/Page.php(24): App\Models\UserHealthInfoModel->test()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Page->test()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+ERROR - 2026-05-09 17:52:06 --> Unknown column 'title' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Models/RegimeModel.php(35): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Models/UserHealthInfoModel.php(39): App\Models\RegimeModel->findTypeRegime()
+ 9 APPPATH/Controllers/Recommandation.php(28): App\Models\UserHealthInfoModel->genererRecommandations()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Recommandation->generer()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 17:52:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'title' in 'where clause'
+[Method: GET, Route: test]
+in SYSTEMPATH/Database/BaseConnection.php on line 865.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 4 APPPATH/Models/RegimeModel.php(35): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Models/UserHealthInfoModel.php(39): App\Models\RegimeModel->findTypeRegime()
+ 6 APPPATH/Controllers/Recommandation.php(28): App\Models\UserHealthInfoModel->genererRecommandations()
+ 7 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Recommandation->generer()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 17:52:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'title' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 6 APPPATH/Models/RegimeModel.php(35): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Models/UserHealthInfoModel.php(39): App\Models\RegimeModel->findTypeRegime()
+ 8 APPPATH/Controllers/Recommandation.php(28): App\Models\UserHealthInfoModel->genererRecommandations()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Recommandation->generer()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+15 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 17:52:06 --> [Caused by] mysqli_sql_exception: Unknown column 'title' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll()
+ 7 APPPATH/Models/RegimeModel.php(35): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Models/UserHealthInfoModel.php(39): App\Models\RegimeModel->findTypeRegime()
+ 9 APPPATH/Controllers/Recommandation.php(28): App\Models\UserHealthInfoModel->genererRecommandations()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Recommandation->generer()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+16 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 17:58:42 --> ParseError: syntax error, unexpected variable "$duree", expecting "," or ";"
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 44.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 APPPATH/Controllers/RecommandationController.php(14): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 17:58:43 --> ParseError: syntax error, unexpected variable "$duree", expecting "," or ";"
+[Method: GET, Route: test]
+in APPPATH/Models/UserHealthInfoModel.php on line 44.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 APPPATH/Controllers/RecommandationController.php(14): CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:04:06 --> Error: Undefined constant "App\Models\ppr"
+[Method: GET, Route: test]
+in APPPATH/Models/RegimeModel.php on line 54.
+ 1 APPPATH/Models/UserHealthInfoModel.php(44): App\Models\RegimeModel->calcPrixRegime()
+ 2 APPPATH/Controllers/RecommandationController.php(34): App\Models\UserHealthInfoModel->genererRecommandations()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:04:07 --> Error: Undefined constant "App\Models\ppr"
+[Method: GET, Route: test]
+in APPPATH/Models/RegimeModel.php on line 54.
+ 1 APPPATH/Models/UserHealthInfoModel.php(44): App\Models\RegimeModel->calcPrixRegime()
+ 2 APPPATH/Controllers/RecommandationController.php(34): App\Models\UserHealthInfoModel->genererRecommandations()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:01 --> Error: Undefined constant "App\Models\ppr"
+[Method: GET, Route: test]
+in APPPATH/Models/RegimeModel.php on line 54.
+ 1 APPPATH/Models/UserHealthInfoModel.php(44): App\Models\RegimeModel->calcPrixRegime()
+ 2 APPPATH/Controllers/RecommandationController.php(34): App\Models\UserHealthInfoModel->genererRecommandations()
+ 3 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 6 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 8 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:56 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:57 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:57 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:58 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:58 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
+CRITICAL - 2026-05-09 18:06:58 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: test]
+in APPPATH/Views/test.php on line 53.
+ 1 APPPATH/Views/test.php(53): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/anj/s4/SI/regime/app/Views/test.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/RecommandationController.php(36): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\RecommandationController->generer()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/home/anj/s4/SI/regime/public/index.php')
