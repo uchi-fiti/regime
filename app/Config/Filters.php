@@ -80,7 +80,8 @@ class Filters extends BaseFilters
                 'except' => [
                     'auth/validerChamp',
                     'auth/traiteInscription',
-                    'health/submit'
+                    'health/submit',
+                    'health/objective'
                 ],
             ],
             // 'invalidchars',

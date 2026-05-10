@@ -154,6 +154,8 @@ const targetInputSection = document.getElementById('target-input-section');
 const recommendationBox = document.getElementById('recommendation-box');
 const objectiveForm = document.getElementById('objective-form');
 const targetValue = document.getElementById('target-value');
+const saveObjectiveUrl = "<?= site_url('health/objective') ?>";
+let selectedObjective = null;
 
 // Données d'exemple (normalement viendrait du serveur)
 let userData = {
@@ -234,6 +236,7 @@ objectives.forEach(obj => {
   `;
   
   btn.addEventListener('click', () => {
+    selectedObjective = obj;
     // Déselectionner les autres
     document.querySelectorAll('.objective-btn').forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
@@ -277,6 +280,12 @@ objectiveForm.addEventListener('submit', async (e) => {
   targetValue.classList.remove('error');
   
   // Validation
+  if (!selectedObjective) {
+    errorEl.textContent = 'Veuillez choisir un objectif.';
+    errorEl.classList.add('show');
+    return;
+  }
+
   if (!targetVal || targetVal < 20 || targetVal > 300) {
     errorEl.textContent = 'Veuillez entrer une valeur valide (20-300 kg)';
     errorEl.classList.add('show');
@@ -285,14 +294,30 @@ objectiveForm.addEventListener('submit', async (e) => {
   }
   
   try {
-    // Simuler un appel AJAX / API
-    console.log({
-      objective: document.querySelector('.objective-btn.selected .objective-title').textContent,
-      targetWeight: targetVal
+    const response = await fetch(saveObjectiveUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        objective_label: selectedObjective.title,
+        objective_key: selectedObjective.id,
+        target_value: targetVal
+      })
     });
-    
-    // Redirection
-    window.location.href = 'index.php#regimes';
+
+    const result = await response.json();
+    if (response.ok && result.status === 'ok') {
+      window.location.href = result.redirect || 'index.php#regimes';
+      return;
+    }
+
+    if (result.errors && result.errors.target_value) {
+      errorEl.textContent = result.errors.target_value;
+      errorEl.classList.add('show');
+      targetValue.classList.add('error');
+    } else {
+      errorEl.textContent = 'Impossible d\'enregistrer votre objectif.';
+      errorEl.classList.add('show');
+    }
   } catch (error) {
     console.error('Erreur:', error);
   }
