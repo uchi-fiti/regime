@@ -10,7 +10,7 @@ class RecommandationController extends BaseController {
     public function generer() {
         $modelHealth = new UserHealthInfoModel();
 
-        $info = $modelHealth->find(6);
+        $info = $modelHealth->find(1);
         
         if (!$info) {
             return view('test', [

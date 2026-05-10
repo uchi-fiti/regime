@@ -19,10 +19,10 @@ create table user (
 create table user_health_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT NOT NULL,
-    taille DECIMAL(5,2) NOT NULL, 
-    poids DECIMAL(5,2) NOT NULL,
+    taille DECIMAL(5,2) NOT NULL, -- en mètres
+    poids DECIMAL(5,2) NOT NULL, -- en kg
     id_objectif INT NOT NULL,
-    valeur_objectif DECIMAL(5,2), 
+    valeur_objectif DECIMAL(5,2), -- dans Z (ex +10 ou -5)
     date_info DATE NOT NULL,
     FOREIGN KEY (id_user) REFERENCES user(id),
     FOREIGN KEY (id_objectif) REFERENCES objectif(id)
@@ -35,13 +35,13 @@ create table regime (
     pourcentage_viande DECIMAL(5,2) DEFAULT 0,
     pourcentage_poisson DECIMAL(5,2) DEFAULT 0,
     pourcentage_volaille DECIMAL(5,2) DEFAULT 0,
-    variation_poids_journalier DECIMAL(5,3) NOT NULL
+    variation_poids_journalier DECIMAL(5,3) NOT NULL -- en kg dans Z
 );
 
 create table sport (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(100) NOT NULL,
-    variation_poids_journalier DECIMAL(5,3) NOT NULL
+    variation_poids_journalier DECIMAL(5,3) NOT NULL -- en kg dans Z
 );
 
 create table table_imc (
@@ -54,7 +54,7 @@ create table table_imc (
 CREATE TABLE code (
     id INT AUTO_INCREMENT PRIMARY KEY,
     code VARCHAR(20) NOT NULL UNIQUE,
-    valeur DECIMAL(10,2) NOT NULL,
+    valeur DECIMAL(10,2) NOT NULL, -- en ariary
     statut INT DEFAULT 0
 );
 
@@ -62,7 +62,7 @@ create table abonnement (
     id INT AUTO_INCREMENT PRIMARY KEY,
     label VARCHAR(50) NOT NULL,
     prix DECIMAL(10,2) NOT NULL,
-    remise DECIMAL(5,2)
+    remise DECIMAL(5,2) -- en % entre 0 et 1
 );
 
 CREATE TABLE user_abonnement (

@@ -63,8 +63,6 @@ class RegimeModel extends Model
             foreach ($abonnements as $abo) {
                 $remise *= (1 - $abo['remise']);
             }
-        } else {
-            $remise = 0;
         }
 
         if ($plage) {
