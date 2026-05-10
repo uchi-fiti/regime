@@ -82,12 +82,13 @@ class UserHealthInfoController extends BaseController
         }
 
         $model = new UserHealthInfoModel();
+        $objectiveDelta = (float) $targetValue - $weight;
         $insertData = [
             'id_user' => (int) $user['id'],
             'taille' => (float) $height,
             'poids' => (float) $weight,
             'id_objectif' => $objectiveId,
-            'valeur_objectif' => $targetValue,
+            'valeur_objectif' => $objectiveDelta,
             'date_info' => date('Y-m-d'),
         ];
 
@@ -100,7 +101,7 @@ class UserHealthInfoController extends BaseController
 
         return $this->response->setJSON([
             'status' => 'ok',
-            'redirect' => site_url('test'),
+            'redirect' => site_url('recommandation'),
         ]);
     }
 

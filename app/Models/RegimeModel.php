@@ -55,7 +55,11 @@ class RegimeModel extends Model
                     ->where('jour_debut <=', $duree)
                     ->where('jour_fin >=', $duree)
                     ->first();
-
+        if(!$plage) {
+            $plage = $ppr->where('id_regime', $idRegime)
+            ->orderBy("jour_fin", "DESC")
+            ->first();
+        }
         $userAbo = new UserAbonnementModel();
         $abonnements = $userAbo->getAboByUser($idUser);
         $remise = 1;

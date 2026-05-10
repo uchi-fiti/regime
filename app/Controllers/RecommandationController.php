@@ -12,7 +12,7 @@ class RecommandationController extends BaseController {
         $user = session()->get('user');
 
         if (! $user || empty($user['id'])) {
-            return view('test', [
+            return view('front-office/recommandation', [
                 'infos' => [],
                 'recommandations' => []
             ]);
@@ -24,7 +24,7 @@ class RecommandationController extends BaseController {
             ->first();
         
         if (!$info) {
-            return view('test', [
+            return view('front-office/recommandation', [
                 'infos' => [],
                 'recommandations' => []
             ]);
@@ -38,8 +38,7 @@ class RecommandationController extends BaseController {
 
         $recommandations = $modelHealth->genererRecommandations($infos);
         
-        return view('test', [
-            // 'page' => 'test', 
+        return view('front-office/recommandation', [
             'infos' => [$info],
             'recommandations' => $recommandations
         ]);
