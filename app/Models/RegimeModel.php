@@ -24,6 +24,27 @@ class RegimeModel extends Model
         'variation_poids_journalier',
     ];
 
+    protected $validationRules = [
+        'label' => [
+            'rules' => 'required|min_length[4]',
+        ],
+        'pourcentage_viande' => [
+            'rules' => 'required|decimal|greater_than_equal_to[0]|less_than_equal_to[100]',
+        ],
+
+        'pourcentage_poisson' => [
+            'rules' => 'required|decimal|greater_than_equal_to[0]|less_than_equal_to[100]',
+        ],
+
+        'pourcentage_volaille' => [
+            'rules' => 'required|decimal|greater_than_equal_to[0]|less_than_equal_to[100]',
+        ],
+
+        'variation_poids_journalier' => [
+            'rules' => 'required|decimal',
+        ],
+    ];
+
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

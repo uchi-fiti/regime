@@ -35,9 +35,11 @@ $page = $page ?? 'home';
   </defs>
 </svg>
 
+<?php $user = session()->get('user'); ?>
+
 <header class="nav">
   <div class="container nav-inner">
-    <a href="#" class="brand">
+    <a href="<?= site_url('model?page=home') ?>" class="brand">
       <span class="brand-mark"><svg class="icon" style="width:1.25rem;height:1.25rem"><use href="#i-leaf"/></svg></span>
       KomGem
     </a>
@@ -48,7 +50,13 @@ $page = $page ?? 'home';
       <a href="<?= base_url('model?page=profil') ?>">Mon profil</a>
     </nav>
     <div class="nav-actions">
-      <a href="/" class="btn btn-primary btn-sm">Déconnexion</a>
+      <?php if (!empty($user) && !empty($user['nom'])): ?>
+        <span class="btn-link">Bonjour <?= htmlspecialchars($user['nom'], ENT_QUOTES, 'UTF-8') ?></span>
+        <a href="<?= site_url('logout') ?>" class="btn btn-outline btn-sm">Se deconnecter</a>
+      <?php else: ?>
+        <a href="/connection" class="btn-link">Connexion</a>
+        <a href="/inscription" class="btn btn-primary btn-sm">Inscription</a>
+      <?php endif; ?>
     </div>
   </div>
 </header>
@@ -63,13 +71,9 @@ $page = $page ?? 'home';
         <div class="brand"><span class="brand-mark"><svg class="icon" style="width:1.25rem;height:1.25rem"><use href="#i-leaf"/></svg></span> KomGem</div>
         <p>Votre partenaire nutrition, à vos côtés au quotidien.</p>
       </div>
-      <div class="foot-col"><div class="t">Produit</div><ul><li><a href="#">Régimes</a></li><li><a href="#">Activités</a></li><li><a href="#">Gold</a></li><li><a href="#">Codes promo</a></li></ul></div>
-      <div class="foot-col"><div class="t">Société</div><ul><li><a href="#">À propos</a></li><li><a href="#">Carrières</a></li><li><a href="#">Presse</a></li><li><a href="#">Contact</a></li></ul></div>
-      <div class="foot-col"><div class="t">Légal</div><ul><li><a href="#">CGU</a></li><li><a href="#">Confidentialité</a></li><li><a href="#">Cookies</a></li><li><a href="#">Mentions légales</a></li></ul></div>
+      <div class="foot-col"><div class="t">Navigation</div><ul><li><a href="<?= site_url('model?page=home') ?>">Accueil</a></li><li><a href="<?= site_url('model?page=recommandation') ?>">Recommandations</a></li><li><a href="<?= site_url('model?page=gold') ?>">Abonnements</a></li><li><a href="<?= site_url('model?page=profil') ?>">Mon profil</a></li></ul></div>
     </div>
     <div class="copyright">© 2026 KomGem — Projet ITU S4 P18 <br> ETU003902 - ETU004025 - ETU004171</div>
-
-
   </div>
 </footer>
 

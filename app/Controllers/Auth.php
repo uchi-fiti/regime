@@ -211,5 +211,11 @@ class Auth extends BaseController
         return round($idealImc * ($heightM * $heightM), 1);
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to(site_url('model?page=home'));
+    }
+
    
 }

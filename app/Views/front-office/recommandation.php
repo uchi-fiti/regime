@@ -30,7 +30,7 @@
     <?php if (!empty($recommandations)): ?>
       <div class="grid-3">
         <?php foreach ($recommandations as $reco): ?>
-          <div class="regime">
+          <div class="regime selectable-card" data-type="regime" data-id="<?= (int) ($reco['id_regime'] ?? 0) ?>" data-label="<?= htmlspecialchars($reco['label'] ?? 'Programme', ENT_QUOTES, 'UTF-8') ?>">
             <h3><?= htmlspecialchars($reco['label'] ?? 'Programme', ENT_QUOTES, 'UTF-8') ?></h3>
             <p class="sub"><?= (int) ($reco['duree'] ?? 0) ?> jours</p>
             <div class="price">
@@ -42,8 +42,8 @@
               <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
             </ul>
             <div style="display:flex;gap:0.5rem;margin-top:1rem">
-              <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-              <button class="btn btn-outline" style="flex:1">📥 PDF</button>
+              <button class="btn btn-primary" style="flex:1" type="button">Sélectionner</button>
+              <!-- <button class="btn btn-outline" style="flex:1">📥 PDF</button> -->
             </div>
           </div>
         <?php endforeach; ?>
@@ -57,8 +57,45 @@
     <div class="note" style="margin-top:2rem">
       <svg><use href="#i-check"/></svg> Tous nos régimes incluent un suivi nutritionnel personnalisé et accès à notre communauté.
     </div>
+
+    <div class="section-title" style="margin-top:3rem">
+      <span class="badge"><svg class="icon"><use href="#i-sparkles"/></svg> Sports recommandés</span>
+      <h2 class="h2" style="margin-top:1rem">Bougez avec un plan adapte</h2>
+      <p class="section-sub">Choisissez un sport qui correspond a votre objectif pour accelerer vos resultats.</p>
+    </div>
+
+    <?php if (!empty($sports)): ?>
+      <div class="grid-3">
+        <?php foreach ($sports as $sport): ?>
+          <div class="regime selectable-card" data-type="sport" data-id="<?= (int) ($sport['id_sport'] ?? 0) ?>" data-label="<?= htmlspecialchars($sport['label'] ?? 'Sport', ENT_QUOTES, 'UTF-8') ?>">
+            <h3><?= htmlspecialchars($sport['label'] ?? 'Sport', ENT_QUOTES, 'UTF-8') ?></h3>
+            <p class="sub"><?= (int) ($sport['duree'] ?? 0) ?> jours</p>
+            <div class="price">
+              <span class="num price-num"><?= number_format((float) ($sport['variation'] ?? 0), 3, ',', ' ') ?> kg/j</span>
+            </div>
+            <ul class="feat">
+              <li><svg><use href="#i-check"/></svg> Rythme progressif</li>
+              <li><svg><use href="#i-check"/></svg> Objectif cible</li>
+              <li><svg><use href="#i-check"/></svg> Routine accessible</li>
+            </ul>
+            <div style="display:flex;gap:0.5rem;margin-top:1rem">
+              <button class="btn btn-primary" style="flex:1" type="button">Sélectionner</button>
+              <!-- <button class="btn btn-outline" style="flex:1">📥 PDF</button> -->
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php else: ?>
+      <div class="note" style="margin-top:2rem">
+        <svg><use href="#i-check"/></svg> Aucune recommandation sportive disponible pour le moment.
+      </div>
+    <?php endif; ?>
   </div>
 </section>
+
+<div class="floating-cta" id="floating-cta" aria-hidden="true">
+  <a class="btn btn-primary" id="start-program" href="<?= site_url('confirmation-achat') ?>">Demarrer mon programme</a>
+</div>
 
 <style>
   .grid-3 {
@@ -77,7 +114,116 @@
   .price-num {
     font-size: 1.5rem;
   }
+
+  .selectable-card {
+    border: 3px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .selectable-card:hover {
+    border-color: #6366f1;
+    background: #f0f4ff;
+  }
+
+  .selectable-card.selected {
+    border-color: #6366f1;
+    background: #6366f1;
+    color: #fff;
+  }
+
+  .selectable-card.selected .price-num,
+  .selectable-card.selected .sub,
+  .selectable-card.selected .feat {
+    color: #fff;
+  }
+
+  .selectable-card.selected .feat li,
+  .selectable-card.selected h3 {
+    color: #fff;
+  }
+
+  .floating-cta {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .floating-cta.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
 </style>
+
+<script>
+  const cards = document.querySelectorAll('.selectable-card');
+  const floatingCta = document.getElementById('floating-cta');
+  const startProgramLink = document.getElementById('start-program');
+  let selectedRegimeId = null;
+  let selectedSportId = null;
+
+  function updateCta() {
+    if (selectedRegimeId || selectedSportId) {
+      floatingCta.classList.add('show');
+      floatingCta.setAttribute('aria-hidden', 'false');
+    } else {
+      floatingCta.classList.remove('show');
+      floatingCta.setAttribute('aria-hidden', 'true');
+    }
+
+    const params = new URLSearchParams();
+    if (selectedRegimeId) {
+      params.set('regime', selectedRegimeId);
+    }
+    if (selectedSportId) {
+      params.set('sport', selectedSportId);
+    }
+
+    const baseUrl = "<?= site_url('confirmation-achat') ?>";
+    startProgramLink.href = params.toString() ? `${baseUrl}?${params.toString()}` : baseUrl;
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const type = card.dataset.type;
+      const isSelected = card.classList.contains('selected');
+
+      if (type === 'regime') {
+        document.querySelectorAll('.selectable-card[data-type="regime"]').forEach((node) => {
+          node.classList.remove('selected');
+        });
+        if (!isSelected) {
+          card.classList.add('selected');
+          selectedRegimeId = card.dataset.id || null;
+        } else {
+          selectedRegimeId = null;
+        }
+      }
+
+      if (type === 'sport') {
+        document.querySelectorAll('.selectable-card[data-type="sport"]').forEach((node) => {
+          node.classList.remove('selected');
+        });
+        if (!isSelected) {
+          card.classList.add('selected');
+          selectedSportId = card.dataset.id || null;
+        } else {
+          selectedSportId = null;
+        }
+      }
+
+      updateCta();
+    });
+  });
+
+  updateCta();
+</script>
 
 </body>
 </html>
