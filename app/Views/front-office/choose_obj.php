@@ -17,6 +17,7 @@ $imcAdjective = $imcAdjective ?? 'Corpulence normale';
 $imcValue = $imcValue ?? 24.2;
 $weight = $weight ?? 70;
 $height = $height ?? 170;
+$recommendedWeight = $recommendedWeight ?? 66;
 ?>
 
 <!-- Reusable inline SVG icons -->
@@ -160,7 +161,7 @@ let userData = {
   weight: <?= json_encode($weight) ?>,
   height: <?= json_encode($height) ?>,
   imcCategory: <?= json_encode($imcAdjective) ?>,
-  recommendedWeight: 66
+  recommendedWeight: <?= json_encode($recommendedWeight) ?>
 };
 
 // Déterminer la catégorie IMC

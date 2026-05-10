@@ -38,11 +38,15 @@ class Auth extends BaseController
     {
         $health = session()->get('user_health') ?? [];
 
+        $imcValue = $health['imc'] ?? 24.2;
+        $height = $health['height'] ?? 170;
+
         return view('front-office/choose_obj', [
             'imcAdjective' => $health['adjective'] ?? 'Corpulence normale',
-            'imcValue' => $health['imc'] ?? 24.2,
+            'imcValue' => $imcValue,
             'weight' => $health['weight'] ?? 70,
-            'height' => $health['height'] ?? 170,
+            'height' => $height,
+            'recommendedWeight' => $health['recommended_weight'] ?? $this->calculateRecommendedWeight($imcValue, $height),
         ]);
     }
 
@@ -188,6 +192,23 @@ class Auth extends BaseController
         }
 
         return $this->request->getPost();
+    }
+
+    private function calculateRecommendedWeight(float $imc, float $heightCm): float
+    {
+        $heightM = $heightCm / 100;
+        if ($heightM <= 0.0) {
+            return 0.0;
+        }
+
+        $idealImc = $imc;
+        if ($idealImc < 18.0) {
+            $idealImc = 18.0;
+        } elseif ($idealImc > 25.0) {
+            $idealImc = 25.0;
+        }
+
+        return round($idealImc * ($heightM * $heightM), 1);
     }
 
    

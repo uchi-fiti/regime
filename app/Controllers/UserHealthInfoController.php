@@ -22,6 +22,7 @@ class UserHealthInfoController extends BaseController
 
         $imc = $this->calculateImc($height, $weight);
         $adjective = $this->getImcAdjective($imc);
+        $recommendedWeight = $this->calculateRecommendedWeight($imc, $height);
 
         session()->set([
             'user_health' => [
@@ -29,6 +30,7 @@ class UserHealthInfoController extends BaseController
                 'weight' => $weight,
                 'imc' => $imc,
                 'adjective' => $adjective,
+                'recommended_weight' => $recommendedWeight,
             ],
         ]);
 
@@ -62,6 +64,23 @@ class UserHealthInfoController extends BaseController
         }
 
         return 'Corpulence normale';
+    }
+
+    private function calculateRecommendedWeight(float $imc, float $heightCm): float
+    {
+        $heightM = $heightCm / 100;
+        if ($heightM <= 0.0) {
+            return 0.0;
+        }
+
+        $idealImc = $imc;
+        if ($idealImc < 18.0) {
+            $idealImc = 18.0;
+        } elseif ($idealImc > 25.0) {
+            $idealImc = 25.0;
+        }
+
+        return round($idealImc * ($heightM * $heightM), 1);
     }
 
     private function validateHealthInputs(float $height, float $weight): array
