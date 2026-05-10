@@ -38,6 +38,9 @@ $routes->post('/back-office/connection', 'BackOfficeController::login');
 
 $routes->group('back-office', ['filter' => 'role:admin'], function($routes) {
     $routes->get('dashboard','DashboardController::index');
+    $routes->get('regime/create','RegimeController::form');
+    $routes->post('regime/create','RegimeController::create');
+
 });
 
 
