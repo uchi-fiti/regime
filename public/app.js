@@ -92,6 +92,17 @@ const codeInput = document.getElementById('code-input');
 // Initialiser le wallet seulement si les éléments existent
 if (balanceEl && histEl && codeForm && msgEl) {
   let history = [];
+  const rawHistory = histEl.getAttribute('data-history');
+  if (rawHistory) {
+    try {
+      const parsed = JSON.parse(rawHistory);
+      if (Array.isArray(parsed)) {
+        history = parsed;
+      }
+    } catch (_) {
+      history = [];
+    }
+  }
 
   function renderHistory(){
     histEl.innerHTML = history.map(h=>`

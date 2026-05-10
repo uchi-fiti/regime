@@ -19,10 +19,20 @@ class Page extends BaseController
         $page = $this->request->getGet('page') ?? 'home';
         
         // Validation pour éviter les injections
-        $allowed = ['regimes', 'profil', 'gold','recommandation'];
+        $allowed = ['regimes', 'profil', 'gold', 'recommandation', 'home'];
         $page = in_array($page, $allowed) ? $page : 'home';
         $realpage = "front-office/{$page}";
-        
+
+        if ($page === 'profil') {
+            $user = session()->get('user');
+            if (! $user || empty($user['id'])) {
+                return redirect()->to('/connection');
+            }
+
+            $data = $this->getProfileData((int) $user['id']);
+            return view('model', array_merge(['page' => $realpage], $data));
+        }
+
         return view('model', ['page' => $realpage]);
     }
 
@@ -70,6 +80,7 @@ class Page extends BaseController
             'imc' => $imc,
             'abonnement' => $abonnement,
             'programme_actif' => $this->getActiveProgramme($userId),
+            'wallet_history' => $this->getWalletHistory($userId),
         ];
     }
 
@@ -123,6 +134,24 @@ class Page extends BaseController
         )->getRowArray();
 
         return $row ?: null;
+    }
+
+    private function getWalletHistory(int $userId, int $limit = 5): array
+    {
+        $model = new MvtPortemonnaieModel();
+
+        $rows = $model->where('id_user', $userId)
+            ->orderBy('date_mvt', 'desc')
+            ->limit($limit)
+            ->findAll();
+
+        return array_map(function ($row) {
+            return [
+                'code' => strtoupper($row['type_mvt']),
+                'amount' => (float) $row['montant'],
+                'date' => date('d/m/Y', strtotime($row['date_mvt'])),
+            ];
+        }, $rows);
     }
 
    
