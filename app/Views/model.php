@@ -51,6 +51,7 @@ $page = $page ?? 'home';
     <div class="nav-actions">
       <?php if (!empty($user) && !empty($user['nom'])): ?>
         <span class="btn-link">Bonjour <?= htmlspecialchars($user['nom'], ENT_QUOTES, 'UTF-8') ?></span>
+        <a href="<?= site_url('logout') ?>" class="btn btn-outline btn-sm">Se deconnecter</a>
       <?php else: ?>
         <a href="/connection" class="btn-link">Connexion</a>
         <a href="/inscription" class="btn btn-primary btn-sm">Inscription</a>

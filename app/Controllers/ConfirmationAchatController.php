@@ -6,6 +6,7 @@ use App\Models\MvtPortemonnaieModel;
 use App\Models\RegimeModel;
 use App\Models\SportModel;
 use App\Models\UserHealthInfoModel;
+use App\Models\UserRegimeModel;
 
 class ConfirmationAchatController extends BaseController
 {
@@ -77,6 +78,18 @@ class ConfirmationAchatController extends BaseController
                 'montant' => $prix,
                 'type_mvt' => 'debit',
                 'date_mvt' => $now,
+            ]);
+        }
+
+        if (! empty($data['health_info']['id'])) {
+            $userRegimeModel = new UserRegimeModel();
+            $userRegimeModel->insert([
+                'id_user_health_info' => (int) $data['health_info']['id'],
+                'id_regime' => $regimeId,
+                'id_sport' => $sportId > 0 ? $sportId : null,
+                'date_commande' => $now,
+                'duree' => (int) $data['duree_jours'],
+                'prix' => $prix,
             ]);
         }
 
@@ -174,6 +187,7 @@ class ConfirmationAchatController extends BaseController
             'prix' => $prix,
             'balance' => $balance,
             'isFirstPurchase' => $isFirstPurchase,
+            'health_info' => $info,
         ];
     }
 
