@@ -25,7 +25,7 @@ class Home extends BaseController
             */
             
             // Load the view
-            return view('index');
+            return view('front-office/index');
 
         } catch (\Throwable $e) {
             echo "Database connection failed!<br>";
