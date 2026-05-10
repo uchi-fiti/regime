@@ -43,7 +43,7 @@
             </ul>
             <div style="display:flex;gap:0.5rem;margin-top:1rem">
               <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-              <button class="btn btn-outline" style="flex:1">📥 PDF</button>
+              <!-- <button class="btn btn-outline" style="flex:1">📥 PDF</button> -->
             </div>
           </div>
         <?php endforeach; ?>
@@ -57,6 +57,39 @@
     <div class="note" style="margin-top:2rem">
       <svg><use href="#i-check"/></svg> Tous nos régimes incluent un suivi nutritionnel personnalisé et accès à notre communauté.
     </div>
+
+    <div class="section-title" style="margin-top:3rem">
+      <span class="badge"><svg class="icon"><use href="#i-sparkles"/></svg> Sports recommandés</span>
+      <h2 class="h2" style="margin-top:1rem">Bougez avec un plan adapte</h2>
+      <p class="section-sub">Choisissez un sport qui correspond a votre objectif pour accelerer vos resultats.</p>
+    </div>
+
+    <?php if (!empty($sports)): ?>
+      <div class="grid-3">
+        <?php foreach ($sports as $sport): ?>
+          <div class="regime">
+            <h3><?= htmlspecialchars($sport['label'] ?? 'Sport', ENT_QUOTES, 'UTF-8') ?></h3>
+            <p class="sub"><?= (int) ($sport['duree'] ?? 0) ?> jours</p>
+            <div class="price">
+              <span class="num price-num"><?= number_format((float) ($sport['variation'] ?? 0), 3, ',', ' ') ?> kg/j</span>
+            </div>
+            <ul class="feat">
+              <li><svg><use href="#i-check"/></svg> Rythme progressif</li>
+              <li><svg><use href="#i-check"/></svg> Objectif cible</li>
+              <li><svg><use href="#i-check"/></svg> Routine accessible</li>
+            </ul>
+            <div style="display:flex;gap:0.5rem;margin-top:1rem">
+              <button class="btn btn-primary" style="flex:1">Sélectionner</button>
+              <!-- <button class="btn btn-outline" style="flex:1">📥 PDF</button> -->
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php else: ?>
+      <div class="note" style="margin-top:2rem">
+        <svg><use href="#i-check"/></svg> Aucune recommandation sportive disponible pour le moment.
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 

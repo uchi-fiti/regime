@@ -14,7 +14,8 @@ class RecommandationController extends BaseController {
         if (! $user || empty($user['id'])) {
             return view('front-office/recommandation', [
                 'infos' => [],
-                'recommandations' => []
+                'recommandations' => [],
+                'sports' => []
             ]);
         }
 
@@ -26,7 +27,8 @@ class RecommandationController extends BaseController {
         if (!$info) {
             return view('front-office/recommandation', [
                 'infos' => [],
-                'recommandations' => []
+                'recommandations' => [],
+                'sports' => []
             ]);
         }
 
@@ -37,10 +39,12 @@ class RecommandationController extends BaseController {
         ];
 
         $recommandations = $modelHealth->genererRecommandations($infos);
+        $sports = $modelHealth->genererRecommandationsSports($infos);
         
         return view('front-office/recommandation', [
             'infos' => [$info],
-            'recommandations' => $recommandations
+            'recommandations' => $recommandations,
+            'sports' => $sports
         ]);
     }
 }
