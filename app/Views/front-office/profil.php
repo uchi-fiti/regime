@@ -10,6 +10,7 @@
   $objectifPoids = ($poids !== null && $valeurObjectif !== null)
     ? (float) $poids + (float) $valeurObjectif
     : null;
+  $walletHistory = $wallet_history ?? [];
 ?>
 
 <section id="profil" class="profile-bg">
@@ -39,7 +40,17 @@
         <div id="msg"></div>
         <div class="history">
           <div class="history-title">Historique</div>
-          <ul id="history"></ul>
+          <ul id="history" data-history='<?= htmlspecialchars(json_encode($walletHistory), ENT_QUOTES, 'UTF-8') ?>'>
+            <?php foreach ($walletHistory as $item): ?>
+              <li>
+                <div class="item"><svg><use href="#i-check"/></svg>
+                  <span class="code"><?= htmlspecialchars($item['code'], ENT_QUOTES, 'UTF-8') ?></span>
+                  <span class="date"><?= htmlspecialchars($item['date'], ENT_QUOTES, 'UTF-8') ?></span>
+                </div>
+                <span class="amt">+<?= number_format((float) $item['amount'], 2, '.', ' ') ?> €</span>
+              </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       </div>
     </div>
