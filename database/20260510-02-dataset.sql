@@ -15,11 +15,11 @@ INSERT INTO objectif (label) VALUES
 -- 2. UTILISATEURS (5 users)
 -- ============================================
 INSERT INTO user (nom, mail, genre, mdp, role) VALUES 
-('Jean Rakoto', 'jean@mail.com', 'Homme', SHA2('password123', 256), 'user'),
-('Léa Randria', 'lea@mail.com', 'Femme', SHA2('password456', 256), 'user'),
-('Marc Smith', 'marc@mail.com', 'Homme', SHA2('password789', 256), 'admin'),
-('Sara Doe', 'sara@mail.com', 'Femme', SHA2('password101', 256), 'user'),
-('Paul Cook', 'paul@mail.com', 'Homme', SHA2('password202', 256), 'user');
+('Jean Rakoto', 'jean@mail.com', 'Homme', 'password123', 'user'),
+('Léa Randria', 'lea@mail.com', 'Femme', 'password456', 'user'),
+('Marc Smith', 'marc@mail.com', 'Homme', 'password789', 'user'),
+('Sara Doe', 'sara@mail.com', 'Femme', 'password101', 'user'),
+('Paul Cook', 'paul@mail.com', 'Homme', 'password202', 'user');
 
 -- ============================================
 -- 3. DONNÉES DE SANTÉ (5 enregistrements)
@@ -130,9 +130,12 @@ INSERT INTO prix_regime (id_regime, jour_debut, jour_fin, prix_journalier) VALUE
 -- (3, 2, '2026-05-02 14:15:00');  -- Marc a le Pass Platine
 
 
-SELECT 'Dataset inséré avec succès!' AS message;
-SELECT COUNT(*) as total_users FROM user;
-SELECT COUNT(*) as total_regimes FROM regime;
-SELECT COUNT(*) as total_sports FROM sport;
-SELECT COUNT(*) as total_codes FROM code;
+-- SELECT 'Dataset inséré avec succès!' AS message;
+-- SELECT COUNT(*) as total_users FROM user;
+-- SELECT COUNT(*) as total_regimes FROM regime;
+-- SELECT COUNT(*) as total_sports FROM sport;
+-- SELECT COUNT(*) as total_codes FROM code;
+
+INSERT INTO user (nom, mail, genre, mdp, role) VALUES 
+('admin', 'admin@mail.com', 'Homme','1234', 'admin');
 

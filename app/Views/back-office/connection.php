@@ -30,8 +30,7 @@
     </div>
 
     <div class="card-panel card-panel-centered">
-      <form id="login-form" class="login-form">
-        
+      <form id="login-form" class="login-form" method="post" action="/back-office/connection">
         <div class="form-field">
           <label for="nom">Nom d'utilisateur *</label>
           <input type="text" id="nom" name="nom" value="admin" required>
@@ -62,15 +61,15 @@
         <button type="submit" class="btn btn-primary btn-full-width">Se connecter</button>
         
         <!-- Message d'erreur général -->
-        <div id="error-msg" class="form-message error">
-          Nom d'utilisateur ou mot de passe incorrect
-        </div>
-        
-        <!-- Message succès -->
-        <div id="success-msg" class="form-message success">
-          <svg class="success-icon"><use href="#i-check"/></svg>
-          Connexion réussie!
-        </div>
+        <?php if (session()->getFlashdata('error')): ?>
+          <div id="error-msg" class="form-message error show">
+            <?= session()->getFlashdata('error') ?>
+          </div>
+        <?php else: ?>
+          <div id="error-msg" class="form-message error">
+            Nom d'utilisateur ou mot de passe incorrect
+          </div>
+        <?php endif; ?>
       </form>
     </div>
   </div>
@@ -78,12 +77,8 @@
 
 
 <script>
-const form = document.getElementById('login-form');
-const successMsg = document.getElementById('success-msg');
-const errorMsg = document.getElementById('error-msg');
-const nomInput = document.getElementById('nom');
-const passwordInput = document.getElementById('password');
 const togglePasswordBtn = document.getElementById('toggle-password');
+const passwordInput = document.getElementById('password');
 const eyeIcon = togglePasswordBtn.querySelector('svg use');
 
 // Toggle affichage/masquage mot de passe
@@ -92,31 +87,6 @@ togglePasswordBtn.addEventListener('click', (e) => {
   const type = passwordInput.type === 'password' ? 'text' : 'password';
   passwordInput.type = type;
   eyeIcon.setAttribute('href', type === 'password' ? '#i-eye' : '#i-eye-off');
-});
-
-
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  // Récupérer les valeurs
-  const nom = nomInput.value.trim();
-  const password = passwordInput.value;
-  
-  // Réinitialiser les erreurs
-  document.querySelectorAll('.field-error-msg').forEach(el => el.classList.remove('show'));
-  document.querySelectorAll('input[type="text"], input[type="password"]').forEach(el => el.classList.remove('field-error'));
-  errorMsg.classList.remove('show');
-  
-  // Vérification des identifiants
-  if (nom === 'test' && password === 'password123') {
-
-  } else {
-    // Identifiants incorrects
-    errorMsg.classList.add('show');
-    nomInput.classList.add('field-error');
-    passwordInput.classList.add('field-error');
-  }
 });
 </script>
 
