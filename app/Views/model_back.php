@@ -1,6 +1,6 @@
 <?php
 // La variable $page est passée par le contrôleur
-$page = $page ?? 'home';
+$page = $page ?? 'back-office/dashboard';
 ?>
 
 <!doctype html>
@@ -14,6 +14,7 @@ $page = $page ?? 'home';
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
+<link rel="stylesheet" href="<?= base_url('dashboard.css') ?>" />
 </head>
 <body>
 
@@ -42,10 +43,10 @@ $page = $page ?? 'home';
       KomGem
     </a>
     <nav class="nav-links">
-      <a href="/model">Accueil</a>
-      <a href="<?= base_url('model?page=recommandation') ?>">Régimes</a>
-      <a href="<?= base_url('model?page=gold') ?>">Gold</a>
-      <a href="<?= base_url('model?page=profil') ?>">Mon profil</a>
+      <a href="<?= base_url('back-office/model_back') ?>">Dashboard</a>
+      <a href="<?= base_url('back-office/model_back?page=recommandation') ?>">Régimes</a>
+      <a href="<?= base_url('back-office/model_back?page=gold') ?>">Gold</a>
+      <a href="<?= base_url('back-office/model_back?page=profil') ?>">Mon profil</a>
     </nav>
     <div class="nav-actions">
       <a href="/" class="btn btn-primary btn-sm">Déconnexion</a>

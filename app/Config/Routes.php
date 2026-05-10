@@ -30,6 +30,7 @@ $routes->get('/back-office/connection', 'BackOfficeController::form');
 
 $routes->post('/back-office/connection', 'BackOfficeController::login');
 
+$routes->get('/back-office/model_back', 'BackOfficeController::model');
 $routes->group('back-office', ['filter' => 'role:admin'], function($routes) {
     $routes->get('dashboard','DashboardController::index');
 });
