@@ -188,6 +188,13 @@ section{padding:6rem 0}
 
 /* Profile */
 .profile-bg{background:oklch(0.96 0.015 120 / .3)}
+.profile-grid{margin-top:2.5rem}
+.profile-card{background:var(--card);border-radius:1.5rem;padding:1.75rem;border:1px solid var(--border);box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:.75rem}
+.profile-card-title{font-weight:700;font-size:1.125rem}
+.profile-row{display:flex;justify-content:space-between;gap:1rem;font-size:.95rem}
+.profile-row span{color:var(--muted-foreground)}
+.profile-empty{color:var(--muted-foreground);margin-top:.5rem}
+.profile-actions{display:flex;justify-content:center}
 .wallet-card{border-radius:1.5rem;padding:2rem;color:var(--primary-foreground);box-shadow:var(--shadow-card);background:var(--gradient-primary);position:relative;overflow:hidden}
 .wallet-top{display:flex;justify-content:space-between;align-items:center}
 .wallet-top .l{display:flex;align-items:center;gap:.5rem;font-size:.875rem;font-weight:500;opacity:.9}
