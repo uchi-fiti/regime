@@ -41,7 +41,7 @@ class UserHealthInfoModel extends Model
         $recos = [];
         foreach ($regimes as $r) {
             $duree = $regimeModel->calcDureeRegime($r, $objectif);
-            $prix = $regimeModel->calcPrixRegime($r['id'], $duree);
+            $prix = $regimeModel->calcPrixRegime($r['id'], $duree, $infos['id_user']);
             
             $recos[] = [
                 'id_regime' => $r['id'],

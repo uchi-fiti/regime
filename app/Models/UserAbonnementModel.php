@@ -25,4 +25,13 @@ class UserAbonnementModel extends Model
     protected array $castHandlers = [];
 
     protected $useTimestamps = false;
+
+    public function getAboByUSer($idUser) {
+        return $this->select('label, prix, remise, date_achat')
+                    ->join('abonnement', 'abonnement.id = user_abonnement.id_abonnement')
+                    ->where('id_user', $idUser)
+                    ->findAll();
+    }
+
+    // select label, prix, remise, date_achat from user_abonnement join abonnement on id abonnement where id_user = 1
 }
