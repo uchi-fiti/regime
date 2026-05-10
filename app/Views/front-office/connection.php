@@ -168,9 +168,7 @@ form.addEventListener('submit', async (e) => {
         successMsg.style.display = 'block';
         
         // Redirection après 2 secondes
-        setTimeout(() => {
           window.location.href = 'index.php#profil';
-        }, 2000);
       } else {
         // Identifiants incorrects
         errorMsg.style.display = 'block';

@@ -34,15 +34,17 @@
         <!-- Nom -->
         <div class="field">
           <label for="fullname">Nom complet *</label>
-          <input type="text" id="fullname" name="fullname" required placeholder="Jean Dupont">
-          <span class="error-msg" id="fullname-error"></span>
+          <input type="text" id="fullname" name="nom" required placeholder="Jean Dupont">
+          <span class="error-msg" id="nom-error"></span>
+          <span class="valid-msg" id="nom-valid"><svg class="icon"><use href="#i-check"/></svg> Valide</span>
         </div>
 
         <!-- Email -->
         <div class="field">
           <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required placeholder="jean@exemple.com">
-          <span class="error-msg" id="email-error"></span>
+          <input type="email" id="email" name="mail" required placeholder="jean@exemple.com">
+          <span class="error-msg" id="mail-error"></span>
+          <span class="valid-msg" id="mail-valid"><svg class="icon"><use href="#i-check"/></svg> Valide</span>
         </div>
 
         <!-- Genre -->
@@ -50,34 +52,37 @@
           <label>Genre *</label>
           <div class="radio-group" style="display:flex;gap:2rem">
             <label class="radio-label">
-              <input type="radio" name="gender" value="M" required>
+              <input type="radio" name="genre" value="M" required>
               <span>Homme</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="gender" value="F" required>
+              <input type="radio" name="genre" value="F" required>
               <span>Femme</span>
             </label>
             <label class="radio-label">
-              <input type="radio" name="gender" value="other" required>
+              <input type="radio" name="genre" value="other" required>
               <span>Autre</span>
             </label>
           </div>
-          <span class="error-msg" id="gender-error"></span>
+          <span class="error-msg" id="genre-error"></span>
+          <span class="valid-msg" id="genre-valid"><svg class="icon"><use href="#i-check"/></svg> Valide</span>
         </div>
 
         <!-- Mot de passe -->
         <div class="field">
           <label for="password">Mot de passe *</label>
-          <input type="password" id="password" name="password" required placeholder="••••••••" minlength="8">
+          <input type="password" id="password" name="mdp" required placeholder="••••••••" minlength="8">
           <span class="info-msg">Minimum 8 caractères</span>
-          <span class="error-msg" id="password-error"></span>
+          <span class="error-msg" id="mdp-error"></span>
+          <span class="valid-msg" id="mdp-valid"><svg class="icon"><use href="#i-check"/></svg> Valide</span>
         </div>
 
         <!-- Confirmer mot de passe -->
         <div class="field">
           <label for="confirm-password">Confirmer le mot de passe *</label>
-          <input type="password" id="confirm-password" name="confirm-password" required placeholder="••••••••">
-          <span class="error-msg" id="confirm-password-error"></span>
+          <input type="password" id="confirm-password" name="confirm_password" required placeholder="••••••••">
+          <span class="error-msg" id="confirm_password-error"></span>
+          <span class="valid-msg" id="confirm_password-valid"><svg class="icon"><use href="#i-check"/></svg> Valide</span>
         </div>
 
         <!-- Bouton submit -->
@@ -103,8 +108,12 @@
 .field input { padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s; }
 .field input:focus { outline: none; border-color: #6366f1; }
 .field input.error { border-color: #ef4444; }
+.field input.valid { border-color: #22c55e; }
 .error-msg { display: none; font-size: 0.875rem; color: #ef4444; }
 .error-msg.show { display: block; }
+.valid-msg { display: none; font-size: 0.875rem; color: #15803d; align-items: center; gap: 0.25rem; }
+.valid-msg.show { display: inline-flex; }
+.valid-msg .icon { width: 16px; height: 16px; margin-right: 0.25rem; }
 .info-msg { font-size: 0.75rem; color: #666; }
 .radio-group { margin-top: 0.5rem; }
 .radio-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-weight: 400; }
@@ -114,80 +123,168 @@
 <script>
 const form = document.getElementById('signup-form');
 const successMsg = document.getElementById('success-msg');
+const validateUrl = "/auth/validerChamp";
+const submitUrl = "/auth/traiteInscription";
+const redirectUrl = "/information";
+
+const fieldConfig = {
+  nom: { inputId: 'fullname', errorId: 'nom-error', validId: 'nom-valid' },
+  mail: { inputId: 'email', errorId: 'mail-error', validId: 'mail-valid' },
+  genre: { inputName: 'genre', errorId: 'genre-error', validId: 'genre-valid' },
+  mdp: { inputId: 'password', errorId: 'mdp-error', validId: 'mdp-valid' },
+  confirm_password: { inputId: 'confirm-password', errorId: 'confirm_password-error', validId: 'confirm_password-valid' }
+};
+
+const fieldOrder = ['nom', 'mail', 'genre', 'mdp', 'confirm_password'];
+
+function getFieldValue(fieldName) {
+  if (fieldName === 'genre') {
+    return document.querySelector('input[name="genre"]:checked')?.value || '';
+  }
+  const config = fieldConfig[fieldName];
+  return document.getElementById(config.inputId)?.value?.trim() || '';
+}
+
+function clearFieldState(fieldName) {
+  const config = fieldConfig[fieldName];
+  const input = config.inputId ? document.getElementById(config.inputId) : null;
+  const errorEl = document.getElementById(config.errorId);
+  const validEl = document.getElementById(config.validId);
+
+  if (input) {
+    input.classList.remove('error', 'valid');
+  }
+  if (errorEl) {
+    errorEl.textContent = '';
+    errorEl.classList.remove('show');
+  }
+  if (validEl) {
+    validEl.classList.remove('show');
+  }
+}
+
+function setFieldError(fieldName, message) {
+  const config = fieldConfig[fieldName];
+  const input = config.inputId ? document.getElementById(config.inputId) : null;
+  const errorEl = document.getElementById(config.errorId);
+  const validEl = document.getElementById(config.validId);
+
+  if (input) {
+    input.classList.add('error');
+    input.classList.remove('valid');
+  }
+  if (errorEl) {
+    errorEl.textContent = message;
+    errorEl.classList.add('show');
+  }
+  if (validEl) {
+    validEl.classList.remove('show');
+  }
+}
+
+function setFieldValid(fieldName) {
+  const config = fieldConfig[fieldName];
+  const input = config.inputId ? document.getElementById(config.inputId) : null;
+  const errorEl = document.getElementById(config.errorId);
+  const validEl = document.getElementById(config.validId);
+
+  if (input) {
+    input.classList.remove('error');
+    input.classList.add('valid');
+  }
+  if (errorEl) {
+    errorEl.textContent = '';
+    errorEl.classList.remove('show');
+  }
+  if (validEl) {
+    validEl.classList.add('show');
+  }
+}
+
+async function validateField(fieldName) {
+  clearFieldState(fieldName);
+
+  const value = getFieldValue(fieldName);
+  const payload = {
+    field: fieldName,
+    value: value,
+    password: getFieldValue('mdp'),
+    confirm_password: getFieldValue('confirm_password')
+  };
+
+  try {
+    const response = await fetch(validateUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+
+    if (result.status === 'ok') {
+      setFieldValid(fieldName);
+    } else {
+      setFieldError(fieldName, result.message || 'Champ invalide');
+    }
+  } catch (error) {
+    setFieldError(fieldName, 'Erreur reseau, reessayez.');
+  }
+}
+
+fieldOrder.forEach((fieldName) => {
+  const config = fieldConfig[fieldName];
+  if (fieldName === 'genre') {
+    document.querySelectorAll('input[name="genre"]').forEach((radio) => {
+      radio.addEventListener('change', () => validateField(fieldName));
+    });
+    return;
+  }
+
+  const input = document.getElementById(config.inputId);
+  if (!input) {
+    return;
+  }
+  input.addEventListener('blur', () => validateField(fieldName));
+  input.addEventListener('input', () => clearFieldState(fieldName));
+});
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  
-  // Récupérer les valeurs
-  const fullname = document.getElementById('fullname').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const gender = document.querySelector('input[name="gender"]:checked')?.value;
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirm-password').value;
-  
-  // Réinitialiser les erreurs
-  document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
-  document.querySelectorAll('input').forEach(el => el.classList.remove('error'));
-  
-  let isValid = true;
-  
-  // Validation nom
-  if (!fullname || fullname.length < 2) {
-    document.getElementById('fullname-error').textContent = 'Veuillez entrer un nom valide';
-    document.getElementById('fullname-error').classList.add('show');
-    document.getElementById('fullname').classList.add('error');
-    isValid = false;
-  }
-  
-  // Validation email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email || !emailRegex.test(email)) {
-    document.getElementById('email-error').textContent = 'Email invalide';
-    document.getElementById('email-error').classList.add('show');
-    document.getElementById('email').classList.add('error');
-    isValid = false;
-  }
-  
-  // Validation genre
-  if (!gender) {
-    document.getElementById('gender-error').textContent = 'Veuillez sélectionner un genre';
-    document.getElementById('gender-error').classList.add('show');
-    isValid = false;
-  }
-  
-  // Validation mot de passe
-  if (password.length < 8) {
-    document.getElementById('password-error').textContent = 'Le mot de passe doit avoir au moins 8 caractères';
-    document.getElementById('password-error').classList.add('show');
-    document.getElementById('password').classList.add('error');
-    isValid = false;
-  }
-  
-  // Validation confirmation
-  if (password !== confirmPassword) {
-    document.getElementById('confirm-password-error').textContent = 'Les mots de passe ne correspondent pas';
-    document.getElementById('confirm-password-error').classList.add('show');
-    document.getElementById('confirm-password').classList.add('error');
-    isValid = false;
-  }
-  
-  if (isValid) {
-    // Simuler un appel AJAX
-    try {
-      // Dans une vraie app, faire un POST vers le serveur
-      console.log({fullname, email, gender, password});
-      
-      // Afficher le succès
+
+  fieldOrder.forEach(clearFieldState);
+
+  const payload = {
+    nom: getFieldValue('nom'),
+    mail: getFieldValue('mail'),
+    genre: getFieldValue('genre'),
+    mdp: getFieldValue('mdp'),
+    confirm_password: getFieldValue('confirm_password')
+  };
+
+  try {
+    const response = await fetch(submitUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+
+    if (result.status === 'ok') {
       form.style.display = 'none';
       successMsg.style.display = 'block';
+        window.location.href = redirectUrl;
       
-      // Redirection après 2 secondes
-      setTimeout(() => {
-        window.location.href = 'inform/connection';
-      }, 2000);
-    } catch (error) {
-      console.error('Erreur:', error);
+      return;
     }
+
+    if (result.errors) {
+      Object.entries(result.errors).forEach(([fieldName, message]) => {
+        if (fieldConfig[fieldName]) {
+          setFieldError(fieldName, message);
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Erreur:', error);
   }
 });
 </script>

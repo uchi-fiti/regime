@@ -12,8 +12,10 @@ $routes->get('/inscription', 'Auth::inscription');
 $routes->get('/connection', 'Auth::connection');
 $routes->get('/information', 'Auth::information');
 $routes->get('/choose-obj', 'Auth::chooseObj');
+$routes->post('/auth/validerChamp', 'Auth::validerChamp');
+$routes->post('/auth/traiteInscription', 'Auth::traiteInscription');
 // Routes pour les pages principales
-$routes->get('/model', 'Page::model');
+$routes->get('/model', 'Page::model');  
 $routes->get('/home', 'Page::home');
 
 // Route pour les recommandations
