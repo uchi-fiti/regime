@@ -12,6 +12,13 @@
 </head>
 <body>
 
+<?php
+$imcAdjective = $imcAdjective ?? 'Corpulence normale';
+$imcValue = $imcValue ?? 24.2;
+$weight = $weight ?? 70;
+$height = $height ?? 170;
+?>
+
 <!-- Reusable inline SVG icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -31,7 +38,7 @@
     <div style="text-align:center;margin-bottom:3rem">
       <div style="display:inline-block;padding:1rem 2rem;background:#f0f4ff;border-radius:12px;margin-bottom:1rem">
         <div style="font-size:0.875rem;color:#666;margin-bottom:0.5rem">Votre corpulence</div>
-        <div style="font-size:1.5rem;font-weight:700;color:#6366f1" id="imc-category">Corpulence normale</div>
+        <div style="font-size:1.5rem;font-weight:700;color:#6366f1" id="imc-category"><?= htmlspecialchars($imcAdjective, ENT_QUOTES, 'UTF-8') ?></div>
       </div>
     </div>
 
@@ -149,10 +156,11 @@ const targetValue = document.getElementById('target-value');
 
 // Données d'exemple (normalement viendrait du serveur)
 let userData = {
-  imc: 24.2,
-  weight: 70,
-  height: 170,
-  recommendedWeight: 66 // IMC idéal ~22-24
+  imc: <?= json_encode($imcValue) ?>,
+  weight: <?= json_encode($weight) ?>,
+  height: <?= json_encode($height) ?>,
+  imcCategory: <?= json_encode($imcAdjective) ?>,
+  recommendedWeight: 66
 };
 
 // Déterminer la catégorie IMC
@@ -211,7 +219,7 @@ const objectives = [
 ];
 
 // Afficher la catégorie IMC
-document.getElementById('imc-category').textContent = getImcCategory(userData.imc);
+document.getElementById('imc-category').textContent = userData.imcCategory || getImcCategory(userData.imc);
 
 // Créer les boutons objectifs
 objectives.forEach(obj => {

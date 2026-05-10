@@ -36,7 +36,14 @@ class Auth extends BaseController
      */
     public function chooseObj()
     {
-        return view('front-office/choose_obj');
+        $health = session()->get('user_health') ?? [];
+
+        return view('front-office/choose_obj', [
+            'imcAdjective' => $health['adjective'] ?? 'Corpulence normale',
+            'imcValue' => $health['imc'] ?? 24.2,
+            'weight' => $health['weight'] ?? 70,
+            'height' => $health['height'] ?? 170,
+        ]);
     }
 
     /**
@@ -143,16 +150,28 @@ class Auth extends BaseController
             'role' => 'user',
         ];
 
-        if (! $model->insert($insertData)) {
+        $userId = $model->insert($insertData);
+        if (! $userId) {
             return $this->response->setStatusCode(500)->setJSON([
                 'status' => 'error',
                 'message' => 'Impossible de creer le compte.',
             ]);
         }
 
+        session()->set([
+            'user' => [
+                'id' => $userId,
+                'nom' => $insertData['nom'],
+                'mail' => $insertData['mail'],
+                'genre' => $insertData['genre'],
+                'role' => $insertData['role'],
+            ],
+        ]);
+
         return $this->response->setJSON([
             'status' => 'ok',
             'message' => 'Compte cree avec succes.',
+            'redirect' => site_url('information'),
         ]);
     }
 
