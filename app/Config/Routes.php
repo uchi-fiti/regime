@@ -14,6 +14,7 @@ $routes->get('/information', 'Auth::information');
 $routes->get('/choose-obj', 'Auth::chooseObj');
 $routes->post('/auth/validerChamp', 'Auth::validerChamp');
 $routes->post('/auth/traiteInscription', 'Auth::traiteInscription');
+$routes->post('/health/submit', 'UserHealthInfoController::submitHealthInfo');
 // Routes pour les pages principales
 $routes->get('/model', 'Page::model');  
 $routes->get('/home', 'Page::home');

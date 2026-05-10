@@ -93,6 +93,8 @@ const weightInput = document.getElementById('weight');
 const imcPreview = document.getElementById('imc-preview');
 const previewImc = document.getElementById('preview-imc');
 const previewCategory = document.getElementById('preview-category');
+const submitUrl = "<?= site_url('health/submit') ?>";
+const redirectUrl = "<?= site_url('choose-obj') ?>";
 
 // Calcul IMC en temps réel
 function calculateIMC() {
@@ -147,22 +149,40 @@ form.addEventListener('submit', async (e) => {
     isValid = false;
   }
   
-  if (isValid) {
-    try {
-      // Simuler un appel AJAX / API
-      console.log({height, weight});
-      
-      // Afficher le succès
+  if (!isValid) {
+    return;
+  }
+
+  try {
+    const response = await fetch(submitUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ height, weight })
+    });
+    const result = await response.json();
+
+    if (result.status === 'ok') {
       form.style.display = 'none';
       successMsg.style.display = 'block';
-      
-      // Redirection après 2 secondes
-      setTimeout(() => {
-        window.location.href = 'choose_obj.php';
-      }, 2000);
-    } catch (error) {
-      console.error('Erreur:', error);
+
+        window.location.href = result.redirect || redirectUrl;
+      return;
     }
+
+    if (result.errors) {
+      if (result.errors.height) {
+        document.getElementById('height-error').textContent = result.errors.height;
+        document.getElementById('height-error').classList.add('show');
+        heightInput.classList.add('error');
+      }
+      if (result.errors.weight) {
+        document.getElementById('weight-error').textContent = result.errors.weight;
+        document.getElementById('weight-error').classList.add('show');
+        weightInput.classList.add('error');
+      }
+    }
+  } catch (error) {
+    console.error('Erreur:', error);
   }
 });
 </script>

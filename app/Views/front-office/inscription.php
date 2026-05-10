@@ -271,8 +271,7 @@ form.addEventListener('submit', async (e) => {
     if (result.status === 'ok') {
       form.style.display = 'none';
       successMsg.style.display = 'block';
-        window.location.href = redirectUrl;
-      
+      window.location.href = result.redirect || redirectUrl;
       return;
     }
 
