@@ -22,3 +22,10 @@ $routes->get('/home', 'Page::home');
 $routes->get('/test', 'RecommandationController::generer');
 
 
+
+
+// routes back office
+$routes->get('/back-office/connection', 'BackOfficeController::connection');
+
+
+
