@@ -29,6 +29,8 @@ $routes->get('/confirmation-achat', 'ConfirmationAchatController::index');
 $routes->post('/confirmation-achat', 'ConfirmationAchatController::confirmer');
 $routes->get('/confirmation-achat/pdf', 'ConfirmationAchatController::exportPdf');
 
+$routes->post('/wallet/redeem', 'WalletController::redeem');
+
 
 // routes back office
 // afficher formulaire de connexion

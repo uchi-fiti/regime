@@ -85,7 +85,8 @@ class Filters extends BaseFilters
                     'auth/traiteInscription',
                     'health/submit',
                     'health/objective',
-                    'confirmation-achat'
+                    'confirmation-achat',
+                    'wallet/redeem'
                 ],
             ],
             // 'invalidchars',
