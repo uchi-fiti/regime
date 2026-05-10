@@ -93,8 +93,8 @@ const weightInput = document.getElementById('weight');
 const imcPreview = document.getElementById('imc-preview');
 const previewImc = document.getElementById('preview-imc');
 const previewCategory = document.getElementById('preview-category');
-const submitUrl = "<?= site_url('health/submit') ?>";
-const redirectUrl = "<?= site_url('choose-obj') ?>";
+const submitUrl = "health/submit";
+const redirectUrl = "choose-obj";
 
 // Calcul IMC en temps réel
 function calculateIMC() {

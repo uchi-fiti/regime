@@ -226,6 +226,7 @@ async function validateField(fieldName) {
       setFieldError(fieldName, result.message || 'Champ invalide');
     }
   } catch (error) {
+    console.log("Error: " + error);
     setFieldError(fieldName, 'Erreur reseau, reessayez.');
   }
 }
