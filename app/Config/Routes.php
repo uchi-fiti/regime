@@ -23,6 +23,11 @@ $routes->get('/home', 'Page::home');
 // Route pour les recommandations
 $routes->get('/recommandation', 'RecommandationController::generer');
 
+// Route pour la confirmation d'achat
+$routes->get('/confirmation-achat', 'ConfirmationAchatController::index');
+$routes->post('/confirmation-achat', 'ConfirmationAchatController::confirmer');
+$routes->get('/confirmation-achat/pdf', 'ConfirmationAchatController::exportPdf');
+
 
 // routes back office
 // afficher formulaire de connexion
