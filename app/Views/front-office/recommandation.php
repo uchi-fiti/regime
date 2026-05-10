@@ -1,3 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KomGem — Recommandations</title>
+<meta name="description" content="Découvrez vos recommandations de regimes personnalises." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></symbol>
+  </defs>
+</svg>
+
 <section id="recommandation" class="recommandation-bg">
   <div class="container-narrow">
     <div class="section-title">
@@ -6,108 +27,57 @@
       <p class="section-sub">Découvrez nos régimes sur mesure, adaptés à vos objectifs et votre budget. Sélectionnez le programme qui vous convient et exportez votre plan d'action.</p>
     </div>
 
-    <div class="grid-3">
-      <div class="regime">
-        <h3>Équilibre</h3>
-        <p class="sub">4 semaines</p>
-        <div class="price"><span class="num">89€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 30% viande</li>
-          <li><svg><use href="#i-check"/></svg> 40% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 30% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
+    <?php if (!empty($recommandations)): ?>
+      <div class="grid-3">
+        <?php foreach ($recommandations as $reco): ?>
+          <div class="regime">
+            <h3><?= htmlspecialchars($reco['label'] ?? 'Programme', ENT_QUOTES, 'UTF-8') ?></h3>
+            <p class="sub"><?= (int) ($reco['duree'] ?? 0) ?> jours</p>
+            <div class="price">
+              <span class="num price-num"><?= number_format((float) ($reco['prix'] ?? 0), 0, ',', ' ') ?> Ar</span>
+            </div>
+            <ul class="feat">
+              <li><svg><use href="#i-check"/></svg> Programme adapte</li>
+              <li><svg><use href="#i-check"/></svg> Duree ciblee</li>
+              <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
+            </ul>
+            <div style="display:flex;gap:0.5rem;margin-top:1rem">
+              <button class="btn btn-primary" style="flex:1">Sélectionner</button>
+              <button class="btn btn-outline" style="flex:1">📥 PDF</button>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
-
-      <div class="regime">
-        <h3>Minceur+</h3>
-        <p class="sub">8 semaines</p>
-        <div class="price"><span class="num">159€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 20% viande</li>
-          <li><svg><use href="#i-check"/></svg> 50% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 30% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
+    <?php else: ?>
+      <div class="note" style="margin-top:2rem">
+        <svg><use href="#i-check"/></svg> Aucune recommandation disponible pour le moment.
       </div>
-
-      <div class="regime">
-        <h3>Performance</h3>
-        <p class="sub">12 semaines</p>
-        <div class="price"><span class="num">219€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 35% viande</li>
-          <li><svg><use href="#i-check"/></svg> 30% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 35% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid-3">
-      <div class="regime">
-        <h3>Équilibre</h3>
-        <p class="sub">4 semaines</p>
-        <div class="price"><span class="num">89€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 30% viande</li>
-          <li><svg><use href="#i-check"/></svg> 40% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 30% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
-      </div>
-
-      <div class="regime">
-        <h3>Minceur+</h3>
-        <p class="sub">8 semaines</p>
-        <div class="price"><span class="num">159€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 20% viande</li>
-          <li><svg><use href="#i-check"/></svg> 50% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 30% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
-      </div>
-
-      <div class="regime">
-        <h3>Performance</h3>
-        <p class="sub">12 semaines</p>
-        <div class="price"><span class="num">219€</span><span class="sub">/programme</span></div>
-        <ul class="feat">
-          <li><svg><use href="#i-check"/></svg> 35% viande</li>
-          <li><svg><use href="#i-check"/></svg> 30% poisson</li>
-          <li><svg><use href="#i-check"/></svg> 35% volaille</li>
-          <li><svg><use href="#i-check"/></svg> Suivi nutritionnel</li>
-        </ul>
-        <div style="display:flex;gap:0.5rem;margin-top:1rem">
-          <button class="btn btn-primary" style="flex:1">Sélectionner</button>
-          <button class="btn btn-outline" style="flex:1">📥 PDF</button>
-        </div>
-      </div>
-    </div>
+    <?php endif; ?>
 
     <div class="note" style="margin-top:2rem">
       <svg><use href="#i-check"/></svg> Tous nos régimes incluent un suivi nutritionnel personnalisé et accès à notre communauté.
     </div>
   </div>
 </section>
+
+<style>
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .grid-3 .regime {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .price-num {
+    font-size: 1.5rem;
+  }
+</style>
+
+</body>
+</html>
