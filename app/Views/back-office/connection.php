@@ -31,7 +31,8 @@
 
     <div class="card-panel card-panel-centered">
       <form id="login-form" class="login-form" method="post" action="/back-office/connection">
-        <div class="form-field">
+      <?= csrf_field() ?>  
+      <div class="form-field">
           <label for="nom">Nom d'utilisateur *</label>
           <input type="text" id="nom" name="nom" value="admin" required>
           <span class="field-error-msg" id="nom-error"></span>
