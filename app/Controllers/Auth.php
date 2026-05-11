@@ -214,7 +214,7 @@ class Auth extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(site_url('model?page=home'));
+        return redirect()->to(site_url('/'));
     }
 
    

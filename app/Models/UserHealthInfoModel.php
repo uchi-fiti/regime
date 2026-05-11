@@ -56,7 +56,8 @@ class UserHealthInfoModel extends Model
 
     public function genererRecommandationsSports(array $infos) {
         $objectif = (float)$infos['valeur_objectif'];
-        $signe = ($objectif < 0) ? '-' : '+';
+        $valeur = $objectif - $infos['poids'];
+        $signe = ($valeur < 0) ? '-' : '+';
 
         $sportModel = new SportModel();
         if ($signe === '-') {
@@ -68,7 +69,7 @@ class UserHealthInfoModel extends Model
         $recos = [];
         foreach ($sports as $sport) {
             $variation = (float) $sport['variation_poids_journalier'];
-            $duree = $variation !== 0.0 ? (int) ceil(abs($objectif) / abs($variation)) : 0;
+            $duree = $variation !== 0.0 ? (int) ceil(abs($valeur) / abs($variation)) : 0;
 
             $recos[] = [
                 'id_sport' => $sport['id'],

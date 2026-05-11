@@ -68,7 +68,7 @@ $recommendedWeight = $recommendedWeight ?? 66;
           <span class="error-msg" id="target-error"></span>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:100%">Voir mes recommandations 🚀</button>
+        <button type="submit" class="btn btn-primary" style="width:100%">Voir mes recommandations</button>
       </form>
     </div>
 
@@ -200,7 +200,7 @@ const objectives = [
     title: 'Augmenter mon poids',
     description: 'Prise de masse saine et progressive grâce à un régime hyperprotéiné équilibré.',
     icon: 'i-trend-up',
-    inputLabel: 'Poids cible (kg)',
+    inputLabel: 'Poids cible (kg) ',
     formula: (w) => w + 5
   },
   {
@@ -208,7 +208,7 @@ const objectives = [
     title: 'Réduire mon poids',
     description: 'Perdez du poids durablement sans privation, avec des repas savoureux.',
     icon: 'i-trend-down',
-    inputLabel: 'Poids cible (kg)',
+    inputLabel: 'Poids cible (kg)  ',
     formula: (w) => w - 5
   },
   {
