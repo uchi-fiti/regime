@@ -25,6 +25,8 @@ $routes->get('/home', 'Page::home');
 
 // Route pour les recommandations
 $routes->get('/recommandation', 'RecommandationController::generer');
+$routes->get('/objectif/(:num)', 'UserHealthInfoController::getUserInfos/$1');
+
 
 // Route pour la confirmation d'achat
 $routes->get('/confirmation-achat', 'ConfirmationAchatController::index');
