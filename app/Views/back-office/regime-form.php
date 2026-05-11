@@ -3,9 +3,9 @@
 
     <div class="section-title">
       <span class="eyebrow">Administration</span>
-      <h1 class="h2">Gestion des régimes</h1>
+      <h1 class="h2"><?= $regime ? 'Modifier le régime' : 'Nouveau régime' ?></h1>
       <p class="section-sub">
-        Ajoutez, modifiez et gérez les régimes alimentaires disponibles sur KomGem.
+        <?= $regime ? 'Modifiez les informations du régime.' : 'Ajoutez un nouveau régime alimentaire.' ?>
       </p>
     </div>
 
@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= base_url('back-office/regime/create') ?>"
+            action="<?= $regime ? base_url('back-office/regimes/update/' . $regime['id']) : base_url('back-office/regimes/create') ?>"
             enctype="multipart/form-data">
 
         <?= csrf_field() ?>
@@ -26,31 +26,14 @@
             type="text"
             id="label"
             name="label"
-            value="<?= old('label') ?>"
+            value="<?= $regime ? $regime['label'] : old('label') ?>"
             placeholder="Ex: Régime Keto"
+            required
           >
 
-          <?php if(isset($validation) && $validation->hasError('label')) : ?>
+          <?php if(isset($validation) && is_array($validation) && isset($validation['label'])) : ?>
             <span class="field-error-msg show">
-              <?= $validation->getError('label') ?>
-            </span>
-          <?php endif; ?>
-        </div>
-
-        <!-- Photo -->
-        <div class="form-field">
-          <label for="photo">Photo du régime *</label>
-
-          <input
-            type="file"
-            id="photo"
-            name="photo"
-            accept="image/*"
-          >
-
-          <?php if(isset($validation) && $validation->hasError('photo')) : ?>
-            <span class="field-error-msg show">
-              <?= $validation->getError('photo') ?>
+              <?= $validation['label'] ?>
             </span>
           <?php endif; ?>
         </div>
@@ -58,7 +41,7 @@
         <!-- Pourcentage viande -->
         <div class="form-field">
           <label for="pourcentage_viande">
-            Pourcentage viande (%)
+            Pourcentage viande (%) *
           </label>
 
           <input
@@ -68,12 +51,13 @@
             min="0"
             max="100"
             step="0.01"
-            value="<?= old('pourcentage_viande') ?>"
+            value="<?= $regime ? $regime['pourcentage_viande'] : old('pourcentage_viande') ?>"
+            required
           >
 
-          <?php if(isset($validation) && $validation->hasError('pourcentage_viande')) : ?>
+          <?php if(isset($validation) && is_array($validation) && isset($validation['pourcentage_viande'])) : ?>
             <span class="field-error-msg show">
-              <?= $validation->getError('pourcentage_viande') ?>
+              <?= $validation['pourcentage_viande'] ?>
             </span>
           <?php endif; ?>
         </div>
@@ -81,7 +65,7 @@
         <!-- Pourcentage poisson -->
         <div class="form-field">
           <label for="pourcentage_poisson">
-            Pourcentage poisson (%)
+            Pourcentage poisson (%) *
           </label>
 
           <input
@@ -91,12 +75,13 @@
             min="0"
             max="100"
             step="0.01"
-            value="<?= old('pourcentage_poisson') ?>"
+            value="<?= $regime ? $regime['pourcentage_poisson'] : old('pourcentage_poisson') ?>"
+            required
           >
 
-          <?php if(isset($validation) && $validation->hasError('pourcentage_poisson')) : ?>
+          <?php if(isset($validation) && is_array($validation) && isset($validation['pourcentage_poisson'])) : ?>
             <span class="field-error-msg show">
-              <?= $validation->getError('pourcentage_poisson') ?>
+              <?= $validation['pourcentage_poisson'] ?>
             </span>
           <?php endif; ?>
         </div>
@@ -104,7 +89,7 @@
         <!-- Pourcentage volaille -->
         <div class="form-field">
           <label for="pourcentage_volaille">
-            Pourcentage volaille (%)
+            Pourcentage volaille (%) *
           </label>
 
           <input
@@ -114,12 +99,13 @@
             min="0"
             max="100"
             step="0.01"
-            value="<?= old('pourcentage_volaille') ?>"
+            value="<?= $regime ? $regime['pourcentage_volaille'] : old('pourcentage_volaille') ?>"
+            required
           >
 
-          <?php if(isset($validation) && $validation->hasError('pourcentage_volaille')) : ?>
+          <?php if(isset($validation) && is_array($validation) && isset($validation['pourcentage_volaille'])) : ?>
             <span class="field-error-msg show">
-              <?= $validation->getError('pourcentage_volaille') ?>
+              <?= $validation['pourcentage_volaille'] ?>
             </span>
           <?php endif; ?>
         </div>
@@ -127,7 +113,7 @@
         <!-- Variation poids -->
         <div class="form-field">
           <label for="variation_poids_journalier">
-            Variation poids journalier (kg)
+            Variation poids journalier (kg) *
           </label>
 
           <input
@@ -135,29 +121,28 @@
             id="variation_poids_journalier"
             name="variation_poids_journalier"
             step="0.01"
-            value="<?= old('variation_poids_journalier') ?>"
+            value="<?= $regime ? $regime['variation_poids_journalier'] : old('variation_poids_journalier') ?>"
             placeholder="Ex: -0.25"
+            required
           >
 
-          <?php if(isset($validation) && $validation->hasError('variation_poids_journalier')) : ?>
+          <?php if(isset($validation) && is_array($validation) && isset($validation['variation_poids_journalier'])) : ?>
             <span class="field-error-msg show">
-              <?= $validation->getError('variation_poids_journalier') ?>
+              <?= $validation['variation_poids_journalier'] ?>
             </span>
           <?php endif; ?>
         </div>
 
         <!-- Boutons -->
-        <div style="display:flex; gap:1rem; flex-wrap:wrap">
+        <div class="form-buttons">
 
           <button type="submit"
-                  class="btn btn-primary"
-                  style="flex:1">
-            Enregistrer
+                  class="btn btn-primary btn-full-width">
+            <?= $regime ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
           <a href="<?= base_url('back-office/regimes') ?>"
-             class="btn btn-outline"
-             style="flex:1; text-align:center">
+             class="btn btn-outline btn-full-width">
             Annuler
           </a>
 

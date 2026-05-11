@@ -14,7 +14,33 @@ class SportModel extends Model
     protected $protectFields = true;
     protected $allowedFields = [
         'label',
-        'variation_poids_journalier',
+        'description',
+        'calories_par_heure',
+    ];
+
+    protected $validationRules = [
+        'label' => [
+            'rules' => 'required|min_length[3]',
+            'errors' => [
+                'required' => 'Le libellé est obligatoire',
+                'min_length' => 'Minimum 3 caractères'
+            ]
+        ],
+        'description' => [
+            'rules' => 'required|min_length[5]',
+            'errors' => [
+                'required' => 'La description est obligatoire',
+                'min_length' => 'Minimum 5 caractères'
+            ]
+        ],
+        'calories_par_heure' => [
+            'rules' => 'required|numeric|greater_than[0]',
+            'errors' => [
+                'required' => 'Les calories par heure sont obligatoires',
+                'numeric' => 'Doit être un nombre',
+                'greater_than' => 'Doit être supérieur à 0'
+            ]
+        ]
     ];
 
     protected bool $allowEmptyInserts = false;
