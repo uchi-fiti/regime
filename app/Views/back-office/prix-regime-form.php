@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= $prixRegime ? base_url('back-office/prix-regimes/update/' . $prixRegime['id']) : base_url('back-office/prix-regimes/create') ?>">
+            action="<?= $prixRegime ? base_url('/back-office/prix-regimes/update/' . $prixRegime['id']) : base_url('/back-office/prix-regimes/create') ?>">
 
         <?= csrf_field() ?>
 
@@ -114,7 +114,7 @@
             <?= $prixRegime ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
-          <a href="<?= base_url('back-office/prix-regimes') ?>"
+          <a href="<?= base_url('/back-office/prix-regimes') ?>"
              class="btn btn-outline btn-full-width">
             Annuler
           </a>

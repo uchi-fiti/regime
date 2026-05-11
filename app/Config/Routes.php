@@ -49,6 +49,14 @@ $routes->get('/back-office/model_back', 'BackOfficeController::model');
 
 $routes->get('/back-office/deconnexion', 'BackOfficeController::logout');
 
+ // CRUD Sports
+    $routes->get('back-office/sports', 'SportController::index');
+    $routes->get('back-office/sports/create', 'SportController::form');
+    $routes->post('back-office/sports/create', 'SportController::create');
+    $routes->get('back-office/sports/edit/(:num)', 'SportController::form/$1');
+    $routes->post('back-office/sports/update/(:num)', 'SportController::update/$1');
+    $routes->get('back-office/sports/delete/(:num)', 'SportController::delete/$1');
+
 $routes->group('/back-office', ['filter' => 'role:admin'], function($routes) {
     $routes->get('/dashboard','DashboardController::index');
     
@@ -68,13 +76,7 @@ $routes->group('/back-office', ['filter' => 'role:admin'], function($routes) {
     $routes->post('/prix-regimes/update/(:num)', 'PrixRegimeController::update/$1');
     $routes->get('/prix-regimes/delete/(:num)', 'PrixRegimeController::delete/$1');
     
-    // CRUD Sports
-    $routes->get('/sports', 'SportController::index');
-    $routes->get('/sports/create', 'SportController::form');
-    $routes->post('/sports/create', 'SportController::create');
-    $routes->get('/sports/edit/(:num)', 'SportController::form/$1');
-    $routes->post('/sports/update/(:num)', 'SportController::update/$1');
-    $routes->get('/sports/delete/(:num)', 'SportController::delete/$1');
+   
     
     // CRUD Abonnements
     $routes->get('/abonnements', 'AbonnementController::index');

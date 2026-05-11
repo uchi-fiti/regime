@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= $regime ? base_url('back-office/regimes/update/' . $regime['id']) : base_url('back-office/regimes/create') ?>"
+            action="<?= $regime ? base_url('/back-office/regimes/update/' . $regime['id']) : base_url('/back-office/regimes/create') ?>"
             enctype="multipart/form-data">
 
         <?= csrf_field() ?>
@@ -141,7 +141,7 @@
             <?= $regime ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
-          <a href="<?= base_url('back-office/regimes') ?>"
+          <a href="<?= base_url('/back-office/regimes') ?>"
              class="btn btn-outline btn-full-width">
             Annuler
           </a>

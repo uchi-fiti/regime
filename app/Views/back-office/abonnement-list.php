@@ -21,7 +21,7 @@
 
     <!-- Bouton créer -->
     <div style="margin-bottom: 2rem;">
-      <a href="<?= base_url('back-office/abonnements/create') ?>" class="btn btn-primary">
+      <a href="/back-office/abonnements/create" class="btn btn-primary">
         + Nouvel abonnement
       </a>
     </div>
@@ -31,7 +31,7 @@
       
       <?php if (empty($abonnements)): ?>
         <div style="padding: 2rem; text-align: center; color: var(--muted-foreground);">
-          <p>Aucun abonnement trouvé. <a href="<?= base_url('back-office/abonnements/create') ?>" style="color: var(--primary); font-weight: 600;">Créer le premier</a></p>
+          <p>Aucun abonnement trouvé. <a href="<?= base_url('/back-office/abonnements/create') ?>" style="color: var(--primary); font-weight: 600;">Créer le premier</a></p>
         </div>
       <?php else: ?>
         
@@ -53,10 +53,10 @@
                 <td style="padding: 1rem;">$<?= number_format($abo['prix'], 2) ?></td>
                 <td style="padding: 1rem;"><?= ($abo['remise'] * 100) ?>%</td>
                 <td style="padding: 1rem; text-align: center;">
-                  <a href="<?= base_url('back-office/abonnements/edit/' . $abo['id']) ?>" class="btn btn-sm" style="background: var(--primary); color: var(--primary-foreground); margin-right: 0.5rem;">
+                  <a href="<?= base_url('/back-office/abonnements/edit/' . $abo['id']) ?>" class="btn btn-sm" style="background: var(--primary); color: var(--primary-foreground); margin-right: 0.5rem;">
                     Modifier
                   </a>
-                  <a href="<?= base_url('back-office/abonnements/delete/' . $abo['id']) ?>" class="btn btn-sm" style="background: var(--destructive); color: white;" onclick="return confirm('Êtes-vous sûr ?')">
+                  <a href="<?= base_url('/back-office/abonnements/delete/' . $abo['id']) ?>" class="btn btn-sm" style="background: var(--destructive); color: white;" onclick="return confirm('Êtes-vous sûr ?')">
                     Supprimer
                   </a>
                 </td>

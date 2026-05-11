@@ -71,10 +71,16 @@ class BackOfficeController extends BaseController
                 $data['regime'] = null;
                 break;
             case 'prix-regime':
-                $prixRegimeModel = new PrixRegimeModel();
-                $regimeModel = new RegimeModel();
-                $data['prixRegimes'] = $prixRegimeModel->findAll();
+                $db = \Config\Database::connect();
+                // Requête avec jointure pour obtenir le label du régime
+                $prixRegimes = $db->table('prix_regime pr')
+                    ->select('pr.id, pr.id_regime, pr.jour_debut, pr.jour_fin, pr.prix_journalier, r.label as regime_label')
+                    ->join('regime r', 'r.id = pr.id_regime')
+                    ->get()
+                    ->getResultArray();
+                $data['prixRegimes'] = $prixRegimes;
                 $data['prixRegime'] = null;
+                $regimeModel = new RegimeModel();
                 $data['regimes'] = $regimeModel->findAll();
                 break;
             case 'sport':
