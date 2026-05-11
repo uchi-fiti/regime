@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\AbonnementModel;
+use App\Models\MvtPorteMonnaieModel;
+
 
 class AbonnementController extends BaseController
 {
@@ -16,14 +18,14 @@ class AbonnementController extends BaseController
     /**
      * Afficher la liste de tous les abonnements
      */
-    public function index()
-    {
-        $abonnements = $this->model->findAll();
+    // public function index()
+    // {
+    //     $abonnements = $this->model->findAll();
         
-        return view('back-office/abonnement-list', [
-            'abonnements' => $abonnements
-        ]);
-    }
+    //     return view('back-office/abonnement-list', [
+    //         'abonnements' => $abonnements
+    //     ]);
+    // }
 
     /**
      * Afficher le formulaire de création/édition
@@ -113,9 +115,7 @@ class AbonnementController extends BaseController
         return redirect()->to('/back-office/abonnements')
             ->with('success', 'Abonnement supprimé avec succès');
       
-use App\Models\UserAbonnementModel;
-use App\Models\MvtPortemonnaieModel;
-
+    }
 
     public function index()
     {

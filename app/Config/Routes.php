@@ -14,6 +14,8 @@ $routes->get('/information', 'Auth::information');
 $routes->get('/choose-obj', 'Auth::chooseObj');
 $routes->post('/auth/validerChamp', 'Auth::validerChamp');
 $routes->post('/auth/traiteInscription', 'Auth::traiteInscription');
+$routes->post('/auth/verifierEmail', 'Auth::verifierEmail');
+$routes->post('/auth/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->post('/health/submit', 'UserHealthInfoController::submitHealthInfo');
 $routes->post('/health/objective', 'UserHealthInfoController::storeObjective');

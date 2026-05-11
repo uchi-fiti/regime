@@ -137,7 +137,7 @@ form.addEventListener('submit', async (e) => {
   
   let isValid = true;
   
-  // Validation email
+  // Validation email (format)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || !emailRegex.test(email)) {
     document.getElementById('email-error').textContent = 'Email invalide';
@@ -156,29 +156,59 @@ form.addEventListener('submit', async (e) => {
   
   if (isValid) {
     try {
-      // Simuler un appel AJAX vers le serveur
-      // En production: POST /api/login avec {email, password}
-      console.log({email, password, remember: document.getElementById('remember').checked});
-      
-      // Simuler une vérification (dans une vraie app, c'est le serveur qui valide)
-      // Pour la démo, accepter les identifiants: test@exemple.com / password123
-      if (email === 'test@exemple.com' && password === 'password123') {
-        // Connexion réussie
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-        
-        // Redirection après 2 secondes
-          window.location.href = 'index.php#profil';
-      } else {
-        // Identifiants incorrects
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await response.json();
+      if (!response.ok || data.status !== 'ok') {
         errorMsg.style.display = 'block';
         emailInput.classList.add('error');
         passwordInput.classList.add('error');
+        return;
       }
+
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+      window.location.href = data.redirect || '/model?page=home';
     } catch (error) {
       console.error('Erreur:', error);
       errorMsg.style.display = 'block';
     }
+  }
+});
+
+emailInput.addEventListener('blur', async () => {
+  const email = emailInput.value.trim();
+  if (!email) return;
+
+  try {
+    const response = await fetch('/auth/verifierEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (!response.ok) {
+      const data = await response.json();
+      document.getElementById('email-error').textContent = data.message || 'Email invalide';
+      document.getElementById('email-error').classList.add('show');
+      emailInput.classList.add('error');
+      return;
+    }
+
+    document.getElementById('email-error').classList.remove('show');
+    emailInput.classList.remove('error');
+  } catch (error) {
+    document.getElementById('email-error').textContent = 'Verification impossible.';
+    document.getElementById('email-error').classList.add('show');
+    emailInput.classList.add('error');
   }
 });
 </script>
