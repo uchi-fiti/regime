@@ -114,6 +114,71 @@ class Auth extends BaseController
         ]);
     }
 
+    public function verifierEmail()
+    {
+        $data = $this->getRequestPayload();
+        $email = trim((string) ($data['email'] ?? ''));
+
+        if ($email === '' || ! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->response->setStatusCode(422)->setJSON([
+                'status' => 'error',
+                'message' => 'Email invalide.',
+            ]);
+        }
+
+        $model = new UserModel();
+        $user = $model->where('mail', $email)->first();
+        if (! $user) {
+            return $this->response->setStatusCode(404)->setJSON([
+                'status' => 'error',
+                'message' => 'Email introuvable.',
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'status' => 'ok',
+            'message' => 'Email valide.',
+        ]);
+    }
+
+    public function login()
+    {
+        $data = $this->getRequestPayload();
+        $email = trim((string) ($data['email'] ?? ''));
+        $password = (string) ($data['password'] ?? '');
+
+        if ($email === '' || $password === '') {
+            return $this->response->setStatusCode(422)->setJSON([
+                'status' => 'error',
+                'message' => 'Email et mot de passe requis.',
+            ]);
+        }
+
+        $user = $this->attemptLogin($email, $password);
+        if (! $user) {
+            return $this->response->setStatusCode(401)->setJSON([
+                'status' => 'error',
+                'message' => 'Email ou mot de passe incorrect.',
+            ]);
+        }
+
+        session()->set([
+            'user' => [
+                'id' => $user['id'],
+                'nom' => $user['nom'],
+                'mail' => $user['mail'],
+                'genre' => $user['genre'],
+                'role' => $user['role'],
+            ],
+        ]);
+
+        return $this->response->setJSON([
+            'status' => 'ok',
+            'message' => 'Connexion reussie.',
+            'redirect' => site_url('model?page=home'),
+        ]);
+    }
+
     /**
      * Traite l'inscription et insere l'utilisateur (AJAX)
      */
@@ -150,7 +215,7 @@ class Auth extends BaseController
             'nom' => $userData['nom'],
             'mail' => $userData['mail'],
             'genre' => $userData['genre'],
-            'mdp' => password_hash($userData['mdp'], PASSWORD_DEFAULT),
+            'mdp' => $userData['mdp'],
             'role' => 'user',
         ];
 
@@ -215,6 +280,21 @@ class Auth extends BaseController
     {
         session()->destroy();
         return redirect()->to(site_url('model?page=home'));
+    }
+
+    private function attemptLogin(string $email, string $password): ?array
+    {
+        $model = new UserModel();
+        $user = $model->where('mail', $email)->first();
+        if (! $user) {
+            return null;
+        }
+
+        if ($password !== $user['mdp']) {
+            return null;
+        }
+
+        return $user;
     }
 
    

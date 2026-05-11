@@ -83,6 +83,8 @@ class Filters extends BaseFilters
                 'except' => [
                     'auth/validerChamp',
                     'auth/traiteInscription',
+                    'auth/verifierEmail',
+                    'auth/login',
                     'health/submit',
                     'health/objective',
                     'confirmation-achat',
