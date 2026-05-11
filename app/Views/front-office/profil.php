@@ -10,6 +10,7 @@
   $objectifPoids = ($poids !== null && $valeurObjectif !== null)
     ? (float) $poids + (float) $valeurObjectif
     : null;
+  $walletHistory = $wallet_history ?? [];
 ?>
 
 <section id="profil" class="profile-bg">
@@ -25,7 +26,7 @@
           <div class="l"><svg class="icon" style="width:1.25rem;height:1.25rem"><use href="#i-wallet"/></svg> Porte-monnaie</div>
           <svg class="icon" style="width:1.25rem;height:1.25rem;opacity:.8"><use href="#i-crown"/></svg>
         </div>
-        <div class="wallet-balance"><div class="l">Solde disponible</div><div class="v"><span id="balance"><?= number_format((float) $balance, 2, '.', ' ') ?></span> €</div></div>
+        <div class="wallet-balance"><div class="l">Solde disponible</div><div class="v"><span id="balance"><?= number_format((float) $balance, 0, '.', ' ') ?></span> Ar</div></div>
         <div class="wallet-bubble"></div>
       </div>
       <div class="code-card">
@@ -39,7 +40,17 @@
         <div id="msg"></div>
         <div class="history">
           <div class="history-title">Historique</div>
-          <ul id="history"></ul>
+          <ul id="history" data-history='<?= htmlspecialchars(json_encode($walletHistory), ENT_QUOTES, 'UTF-8') ?>'>
+            <?php foreach ($walletHistory as $item): ?>
+              <li>
+                <div class="item"><svg><use href="#i-check"/></svg>
+                  <span class="code"><?= htmlspecialchars($item['code'], ENT_QUOTES, 'UTF-8') ?></span>
+                  <span class="date"><?= htmlspecialchars($item['date'], ENT_QUOTES, 'UTF-8') ?></span>
+                </div>
+                <span class="amt">+<?= number_format((float) $item['amount'], 0, '.', ' ') ?> Ar</span>
+              </li>
+            <?php endforeach; ?>
+          </ul>
         </div>
       </div>
     </div>
