@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>KomGem — Connexion</title>
+<meta name="description" content="Connectez-vous à KomGem et retrouvez votre régime personnalisé." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<?= base_url('styles.css') ?>" />
+</head>
+<body>
+
+<!-- Reusable inline SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-7 6-9 17-9 0 11-2 17-9 17a7 7 0 0 1-2-.5"/><path d="M2 22 17 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></symbol>
+  </defs>
+</svg>
+
+
+<section style="padding:6rem 1rem">
+  <div class="container-narrow">
+    <div class="section-title" style="text-align:center;margin-bottom:3rem">
+      <h1 class="h2">Connectez-vous à KomGem</h1>
+      <p class="section-sub">Accédez à votre profil et retrouvez votre régime personnalisé.</p>
+    </div>
+
+    <div class="imc-card" style="max-width:500px;margin:0 auto">
+      <form id="login-form" style="display:flex;flex-direction:column;gap:1.5rem">
+        
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="jean@exemple.com" autocomplete="email">
+          <span class="error-msg" id="email-error"></span>
+        </div>
+
+        <!-- Mot de passe -->
+        <div class="field">
+          <label for="password">Mot de passe *</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="toggle-password" id="toggle-password" title="Afficher le mot de passe">
+              <svg class="icon" style="width:20px;height:20px"><use href="#i-eye"/></svg>
+            </button>
+          </div>
+          <span class="error-msg" id="password-error"></span>
+        </div>
+
+        <!-- Checkbox Se souvenir -->
+        <div class="checkbox-wrapper">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember" name="remember">
+            <span>Se souvenir de moi</span>
+          </label>
+        </div>
+
+        <!-- Bouton submit -->
+        <button type="submit" class="btn btn-primary" style="margin-top:1rem;width:100%">Se connecter</button>
+        
+        <!-- Message d'erreur général -->
+        <div id="error-msg" style="display:none;padding:1rem;background:#fee;border-radius:8px;color:#dc2626;text-align:center;font-size:0.875rem">
+          Email ou mot de passe incorrect
+        </div>
+        
+        <!-- Message succès -->
+        <div id="success-msg" style="display:none;padding:1rem;background:#e8f5e9;border-radius:8px;color:#2e7d32;text-align:center">
+          <svg class="icon" style="width:20px;height:20px;display:inline;margin-right:0.5rem"><use href="#i-check"/></svg>
+          Connexion réussie!
+        </div>
+      </form>
+
+      <div style="margin-top:2rem;border-top:1px solid #eee;padding-top:2rem;text-align:center">
+        <p style="font-size:0.875rem;color:#666;margin:0">Pas encore de compte?</p>
+        <a href="/inscription" class="btn btn-outline" style="margin-top:1rem;width:100%;display:block">Créer un compte</a>
+      </div>
+
+      <p style="text-align:center;margin-top:2rem;font-size:0.875rem;color:#999">
+        <a href="#" style="color:#6366f1;text-decoration:none">Mot de passe oublié?</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field label { font-weight: 500; color: #1a1a1a; }
+.password-wrapper { position: relative; display: flex; align-items: center; }
+.password-wrapper input { padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; width: 100%; transition: border-color 0.2s; }
+.password-wrapper input:focus { outline: none; border-color: #6366f1; }
+.toggle-password { position: absolute; right: 0.75rem; background: none; border: none; cursor: pointer; color: #999; padding: 0.5rem; display: flex; align-items: center; justify-content: center; }
+.toggle-password:hover { color: #6366f1; }
+.field input[type="email"] { padding: 0.75rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s; }
+.field input[type="email"]:focus { outline: none; border-color: #6366f1; }
+.field input.error { border-color: #ef4444; }
+.error-msg { display: none; font-size: 0.875rem; color: #ef4444; }
+.error-msg.show { display: block; }
+.checkbox-wrapper { display: flex; align-items: center; }
+.checkbox-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-weight: 400; font-size: 0.875rem; color: #666; }
+.checkbox-label input { margin: 0; width: auto; cursor: pointer; }
+</style>
+
+<script>
+const form = document.getElementById('login-form');
+const successMsg = document.getElementById('success-msg');
+const errorMsg = document.getElementById('error-msg');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const togglePasswordBtn = document.getElementById('toggle-password');
+const eyeIcon = togglePasswordBtn.querySelector('svg use');
+
+// Toggle affichage/masquage mot de passe
+togglePasswordBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const type = passwordInput.type === 'password' ? 'text' : 'password';
+  passwordInput.type = type;
+  eyeIcon.setAttribute('href', type === 'password' ? '#i-eye' : '#i-eye-off');
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  // Récupérer les valeurs
+  const email = emailInput.value.trim();
+  const password = passwordInput.value;
+  
+  // Réinitialiser les erreurs
+  document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+  document.querySelectorAll('input[type="email"], input[type="password"]').forEach(el => el.classList.remove('error'));
+  errorMsg.style.display = 'none';
+  
+  let isValid = true;
+  
+  // Validation email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    document.getElementById('email-error').textContent = 'Email invalide';
+    document.getElementById('email-error').classList.add('show');
+    emailInput.classList.add('error');
+    isValid = false;
+  }
+  
+  // Validation mot de passe
+  if (!password || password.length < 1) {
+    document.getElementById('password-error').textContent = 'Veuillez entrer votre mot de passe';
+    document.getElementById('password-error').classList.add('show');
+    passwordInput.classList.add('error');
+    isValid = false;
+  }
+  
+  if (isValid) {
+    try {
+      // Simuler un appel AJAX vers le serveur
+      // En production: POST /api/login avec {email, password}
+      console.log({email, password, remember: document.getElementById('remember').checked});
+      
+      // Simuler une vérification (dans une vraie app, c'est le serveur qui valide)
+      // Pour la démo, accepter les identifiants: test@exemple.com / password123
+      if (email === 'test@exemple.com' && password === 'password123') {
+        // Connexion réussie
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+        
+        // Redirection après 2 secondes
+          window.location.href = 'index.php#profil';
+      } else {
+        // Identifiants incorrects
+        errorMsg.style.display = 'block';
+        emailInput.classList.add('error');
+        passwordInput.classList.add('error');
+      }
+    } catch (error) {
+      console.error('Erreur:', error);
+      errorMsg.style.display = 'block';
+    }
+  }
+});
+</script>
+
+</body>
+</html>
