@@ -205,4 +205,16 @@ class UserHealthInfoController extends BaseController
 
         return $this->request->getPost();
     }
+
+    public function getUserInfos($idUser){
+        $model = new UserHealthInfoModel();
+        $infos = $model->select('id_user, taille, poids, label, valeur_objectif, date_info')
+            ->join('objectif', 'user_health_info.id_objectif = objectif.id')
+            ->where('id_user', $idUser)
+            ->findAll();
+        return view('model', [
+            'page' =>'front-office/objectif',
+            'infos' => $infos
+        ]);
+    }
 }

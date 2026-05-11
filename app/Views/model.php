@@ -45,7 +45,7 @@ $page = $page ?? 'home';
     </a>
     <nav class="nav-links">
       <a href="<?= site_url('model?page=home') ?>">Accueil</a>
-      <a href="<?= site_url('recommandation') ?>">Recommandations</a>
+      <a href="<?= site_url('objectif/'. $user['id']) ?>">Mes objectifs</a>
       <a href="<?= site_url('model?page=gold') ?>">Abonnements</a>
       <a href="<?= site_url('model?page=profil') ?>">Mon profil</a>
     </nav>

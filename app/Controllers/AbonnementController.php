@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AbonnementModel;
+use App\Models\UserAbonnementModel;
 use App\Models\MvtPorteMonnaieModel;
 
 
@@ -158,14 +159,14 @@ class AbonnementController extends BaseController
             return redirect()->to(site_url('model?page=gold'));
         }
 
-        $balance = $this->getBalance((int) $user['id']);
-        $prix = (float) $abonnement['prix'];
-        if ($balance < $prix) {
-            return view('front-office/confirmation_abonnement', [
-                'abonnement' => $abonnement,
-                'error' => 'Solde insuffisant pour confirmer cet abonnement.',
-            ]);
-        }
+        // $balance = $this->getBalance((int) $user['id']);
+        // $prix = (float) $abonnement['prix'];
+        // if ($balance < $prix) {
+        //     return view('front-office/confirmation_abonnement', [
+        //         'abonnement' => $abonnement,
+        //         'error' => 'Solde insuffisant pour confirmer cet abonnement.',
+        //     ]);
+        // }
 
         $userAboModel = new UserAbonnementModel();
         $userAboModel->insert([
@@ -174,13 +175,13 @@ class AbonnementController extends BaseController
             'date_achat' => date('Y-m-d H:i:s'),
         ]);
 
-        $mvtModel = new MvtPortemonnaieModel();
-        $mvtModel->insert([
-            'id_user' => (int) $user['id'],
-            'montant' => $prix,
-            'type_mvt' => 'debit',
-            'date_mvt' => date('Y-m-d H:i:s'),
-        ]);
+        // $mvtModel = new MvtPortemonnaieModel();
+        // $mvtModel->insert([
+        //     'id_user' => (int) $user['id'],
+        //     'montant' => $prix,
+        //     'type_mvt' => 'debit',
+        //     'date_mvt' => date('Y-m-d H:i:s'),
+        // ]);
 
         return view('front-office/confirmation_abonnement', [
             'abonnement' => $abonnement,
