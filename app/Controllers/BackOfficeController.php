@@ -8,6 +8,8 @@ use App\Models\RegimeModel;
 use App\Models\CodeModel;
 use App\Models\UserAbonnementModel;
 use App\Models\AbonnementModel;
+use App\Models\PrixRegimeModel;
+use App\Models\SportModel;
 
 class BackOfficeController extends BaseController
 {
@@ -41,24 +43,58 @@ class BackOfficeController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('back-office/login');
+        return redirect()->to('/back-office/connection');
     }
    
     public function model()
     {
-         $page = $this->request->getGet('page') ?? 'dashboard';
+        $page = $this->request->getGet('page') ?? 'dashboard';
         
         // Validation pour éviter les injections
-        $allowed = ['regimes', 'profil', 'gold', 'recommandation', 'dashboard', 'home'];
+        $allowed = ['regime', 'prix-regime', 'sport', 'abonnement', 'code'];
         $page = in_array($page, $allowed) ? $page : 'dashboard';
         
         // Si dashboard est demandé, charger les données du dashboard
         if ($page === 'dashboard') {
             $data = $this->getDashboardData();
-            $realpage = 'back-office/dashboard';
-            return view('model_back', array_merge(['page' => $realpage], $data));
+            $data['page'] = 'back-office/dashboard';
+            return view('model_back', $data);
         }
-         return view('model_back', ['page' => $page]);
+        
+        // Charger les données selon la page demandée
+        $data = ['page' => 'back-office/' . $page];
+        
+        switch($page) {
+            case 'regime':
+                $regimeModel = new RegimeModel();
+                $data['regimes'] = $regimeModel->findAll();
+                $data['regime'] = null;
+                break;
+            case 'prix-regime':
+                $prixRegimeModel = new PrixRegimeModel();
+                $regimeModel = new RegimeModel();
+                $data['prixRegimes'] = $prixRegimeModel->findAll();
+                $data['prixRegime'] = null;
+                $data['regimes'] = $regimeModel->findAll();
+                break;
+            case 'sport':
+                $sportModel = new SportModel();
+                $data['sports'] = $sportModel->findAll();
+                $data['sport'] = null;
+                break;
+            case 'abonnement':
+                $abonnementModel = new AbonnementModel();
+                $data['abonnements'] = $abonnementModel->findAll();
+                $data['abonnement'] = null;
+                break;
+            case 'code':
+                $codeModel = new CodeModel();
+                $data['codes'] = $codeModel->findAll();
+                $data['code'] = null;
+                break;
+        }
+        
+        return view('model_back', $data);
     }
 
      /**
