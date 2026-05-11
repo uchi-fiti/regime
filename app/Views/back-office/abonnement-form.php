@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= $abonnement ? base_url('back-office/abonnements/update/' . $abonnement['id']) : base_url('back-office/abonnements/create') ?>">
+            action="<?= $abonnement ? base_url('/back-office/abonnements/update/' . $abonnement['id']) : base_url('/back-office/abonnements/create') ?>">
 
         <?= csrf_field() ?>
 
@@ -94,7 +94,7 @@
             <?= $abonnement ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
-          <a href="<?= base_url('back-office/abonnements') ?>"
+          <a href="<?= base_url('/back-office/abonnements') ?>"
              class="btn btn-outline btn-full-width">
             Annuler
           </a>

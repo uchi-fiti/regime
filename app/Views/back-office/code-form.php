@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= $code ? base_url('back-office/codes/update/' . $code['id']) : base_url('back-office/codes/create') ?>">
+            action="<?= $code ? base_url('/back-office/codes/update/' . $code['id']) : base_url('/back-office/codes/create') ?>">
 
         <?= csrf_field() ?>
 
@@ -100,7 +100,7 @@
             <?= $code ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
-          <a href="<?= base_url('back-office/codes') ?>"
+          <a href="<?= base_url('/back-office/codes') ?>"
              class="btn btn-outline btn-full-width">
             Annuler
           </a>

@@ -21,7 +21,7 @@
 
     <!-- Bouton créer -->
     <div style="margin-bottom: 2rem;">
-      <a href="<?= base_url('back-office/regimes/create') ?>" class="btn btn-primary">
+      <a href="<?= base_url('/back-office/regimes/create') ?>" class="btn btn-primary">
         + Nouveau régime
       </a>
     </div>
@@ -31,7 +31,7 @@
       
       <?php if (empty($regimes)): ?>
         <div style="padding: 2rem; text-align: center; color: var(--muted-foreground);">
-          <p>Aucun régime trouvé. <a href="<?= base_url('back-office/regimes/create') ?>" style="color: var(--primary); font-weight: 600;">Créer le premier</a></p>
+          <p>Aucun régime trouvé. <a href="<?= base_url('/back-office/regimes/create') ?>" style="color: var(--primary); font-weight: 600;">Créer le premier</a></p>
         </div>
       <?php else: ?>
         
@@ -57,10 +57,10 @@
                 <td style="padding: 1rem;"><?= $regime['pourcentage_volaille'] ?>%</td>
                 <td style="padding: 1rem;"><?= $regime['variation_poids_journalier'] ?></td>
                 <td style="padding: 1rem; text-align: center;">
-                  <a href="<?= base_url('back-office/regimes/edit/' . $regime['id']) ?>" class="btn btn-sm" style="background: var(--primary); color: var(--primary-foreground); margin-right: 0.5rem;">
+                  <a href="<?= base_url('/back-office/regimes/edit/' . $regime['id']) ?>" class="btn btn-sm" style="background: var(--primary); color: var(--primary-foreground); margin-right: 0.5rem;">
                     Modifier
                   </a>
-                  <a href="<?= base_url('back-office/regimes/delete/' . $regime['id']) ?>" class="btn btn-sm" style="background: var(--destructive); color: white;" onclick="return confirm('Êtes-vous sûr ?')">
+                  <a href="<?= base_url('/back-office/regimes/delete/' . $regime['id']) ?>" class="btn btn-sm" style="background: var(--destructive); color: white;" onclick="return confirm('Êtes-vous sûr ?')">
                     Supprimer
                   </a>
                 </td>

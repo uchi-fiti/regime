@@ -13,7 +13,7 @@
 
       <form class="login-form"
             method="post"
-            action="<?= $sport ? base_url('back-office/sports/update/' . $sport['id']) : base_url('back-office/sports/create') ?>">
+            action="<?= $sport ? base_url('/back-office/sports/update/' . $sport['id']) : base_url('/back-office/sports/create') ?>">
 
         <?= csrf_field() ?>
 
@@ -88,7 +88,7 @@
             <?= $sport ? 'Mettre à jour' : 'Créer' ?>
           </button>
 
-          <a href="<?= base_url('back-office/sports') ?>"
+          <a href="<?= base_url('/back-office/sports') ?>"
              class="btn btn-outline btn-full-width">
             Annuler
           </a>

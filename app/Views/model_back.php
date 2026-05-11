@@ -43,12 +43,12 @@ $page = $page ?? 'back-office/dashboard';
       KomGem
     </a>
     <nav class="nav-links">
-      <a href="<?= base_url('back-office/model_back') ?>">Dashboard</a>
-      <a href="<?= base_url('back-office/model_back?page=regime') ?>">Régimes</a>
-      <a href="<?= base_url('back-office/model_back?page=prix-regime') ?>">Prix régimes</a>
-      <a href="<?= base_url('back-office/model_back?page=sport') ?>">Sports</a>
-      <a href="<?= base_url('back-office/model_back?page=abonnement') ?>">Abonnements</a>
-      <a href="<?= base_url('back-office/model_back?page=code') ?>">Codes</a>
+      <a href="<?= base_url('/back-office/model_back') ?>">Dashboard</a>
+      <a href="<?= base_url('/back-office/model_back?page=regime') ?>">Régimes</a>
+      <a href="<?= base_url('/back-office/model_back?page=prix-regime') ?>">Prix régimes</a>
+      <a href="<?= base_url('/back-office/model_back?page=sport') ?>">Sports</a>
+      <a href="<?= base_url('/back-office/model_back?page=abonnement') ?>">Abonnements</a>
+      <a href="<?= base_url('/back-office/model_back?page=code') ?>">Codes</a>
 
     </nav>
     <div class="nav-actions">
