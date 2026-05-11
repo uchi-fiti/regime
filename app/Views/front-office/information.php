@@ -26,7 +26,7 @@
     
     <!-- Message de bienvenue -->
     <div style="background:linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);color:white;padding:2rem;border-radius:12px;margin-bottom:3rem;text-align:center">
-      <div style="font-size:1.125rem;margin-bottom:0.5rem">Bienvenue! 👋</div>
+      <div style="font-size:1.125rem;margin-bottom:0.5rem">Bienvenue!</div>
       <h1 class="h2" style="color:white;margin:0">Vous êtes maintenant inscrit</h1>
       <p style="margin-top:0.5rem;opacity:0.95">Vous allez être en forme. Continuons ensemble!</p>
     </div>
@@ -42,15 +42,15 @@
         
         <!-- Taille -->
         <div class="field">
-          <label for="height">Taille (cm) *</label>
-          <input type="number" id="height" name="height" required placeholder="170" min="100" max="250" step="1">
+          <label for="height">Taille (m) *</label>
+          <input type="number" id="height" name="height" required placeholder="1.70" max="2.50" step="0.01">
           <span class="error-msg" id="height-error"></span>
         </div>
 
         <!-- Poids -->
         <div class="field">
           <label for="weight">Poids (kg) *</label>
-          <input type="number" id="weight" name="weight" required placeholder="70" min="20" max="300" step="0.1">
+          <input type="number" id="weight" name="weight" required placeholder="70" max="300">
           <span class="error-msg" id="weight-error"></span>
         </div>
 
@@ -102,7 +102,7 @@ function calculateIMC() {
   const weight = parseFloat(weightInput.value);
   
   if (height > 0 && weight > 0) {
-    const imc = weight / ((height / 100) ** 2);
+    const imc = weight / (height ** 2);
     previewImc.textContent = imc.toFixed(1);
     
     let category = '';
@@ -132,14 +132,6 @@ form.addEventListener('submit', async (e) => {
   document.querySelectorAll('input').forEach(el => el.classList.remove('error'));
   
   let isValid = true;
-  
-  // Validation taille
-  if (!height || height < 100 || height > 250) {
-    document.getElementById('height-error').textContent = 'Veuillez entrer une taille valide (100-250 cm)';
-    document.getElementById('height-error').classList.add('show');
-    heightInput.classList.add('error');
-    isValid = false;
-  }
   
   // Validation poids
   if (!weight || weight < 20 || weight > 300) {

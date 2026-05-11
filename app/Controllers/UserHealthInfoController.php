@@ -14,6 +14,11 @@ class UserHealthInfoController extends BaseController
         $height = isset($data['height']) ? (float) $data['height'] : 0.0;
         $weight = isset($data['weight']) ? (float) $data['weight'] : 0.0;
 
+        // Convertir la taille de mètres en centimètres si nécessaire
+        if ($height > 0 && $height < 10) {
+            $height = $height * 100;
+        }
+
         $errors = $this->validateHealthInputs($height, $weight);
         if ($errors !== []) {
             return $this->response->setStatusCode(422)->setJSON([
@@ -65,8 +70,12 @@ class UserHealthInfoController extends BaseController
         if ($height === null || $weight === null) {
             $errors['health'] = 'Informations sante manquantes.';
         }
-        if ($targetValue < 20 || $targetValue > 300) {
+        
+        // Validation stricte seulement pour l'objectif "maintain"
+        if ($objectiveKey === 'maintain' && ($targetValue < 20 || $targetValue > 300)) {
             $errors['target_value'] = 'Veuillez entrer une valeur valide (20-300 kg).';
+        } elseif ($objectiveKey !== 'maintain' && $targetValue <= 0) {
+            $errors['target_value'] = 'Veuillez entrer une valeur positive.';
         }
 
         $objectiveId = $this->resolveObjectiveId($objectiveLabel, $objectiveKey);
