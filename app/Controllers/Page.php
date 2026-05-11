@@ -33,6 +33,15 @@ class Page extends BaseController
             return view('model', array_merge(['page' => $realpage], $data));
         }
 
+        if ($page === 'gold') {
+            $aboModel = new AbonnementModel();
+            $abonnements = $aboModel->orderBy('prix', 'asc')->findAll();
+            return view('model', [
+                'page' => $realpage,
+                'abonnements' => $abonnements,
+            ]);
+        }
+
         return view('model', ['page' => $realpage]);
     }
 

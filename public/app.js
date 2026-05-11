@@ -111,14 +111,14 @@ if (balanceEl && histEl && codeForm && msgEl) {
           <span class="code">${h.code}</span>
           <span class="date">${h.date}</span>
         </div>
-        <span class="amt">+${h.amount} €</span>
+        <span class="amt">+${Number(h.amount).toFixed(0)} Ar</span>
       </li>
     `).join('');
   }
   function renderBalance(value){
     const num = Number(value);
     if (!Number.isNaN(num)) {
-      balanceEl.textContent = num.toFixed(2);
+      balanceEl.textContent = num.toFixed(0);
     }
   }
   function showMsg(type, text){
@@ -148,7 +148,7 @@ if (balanceEl && histEl && codeForm && msgEl) {
         history.unshift(movement);
         renderHistory();
         renderBalance(data.balance);
-        showMsg('success', data.message || `+${movement.amount} € credites sur votre porte-monnaie !`);
+        showMsg('success', data.message || `+${movement.amount} Ar credites sur votre porte-monnaie !`);
         codeInput.value = '';
       })
       .catch(() => {

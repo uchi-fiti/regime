@@ -26,7 +26,7 @@ class UserAbonnementModel extends Model
 
     protected $useTimestamps = false;
 
-    public function getAboByUSer($idUser) {
+    public function getAboByUser($idUser) {
         return $this->select('label, prix, remise, date_achat')
                     ->join('abonnement', 'abonnement.id = user_abonnement.id_abonnement')
                     ->where('id_user', $idUser)
