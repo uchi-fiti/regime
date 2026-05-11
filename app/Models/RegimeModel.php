@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\PrixRegimeModel;
-use App\Models\UserAbonnement;
+use App\Models\UserAbonnementModel;
 
 
 class RegimeModel extends Model
@@ -86,7 +86,7 @@ class RegimeModel extends Model
         $remise = 1;
         if ($abonnements) {
             foreach ($abonnements as $abo) {
-                $remise *= (1 - $abo['remise']);
+                $remise *= (1 - ((float) $abo['remise'] / 100));
             }
         }
 

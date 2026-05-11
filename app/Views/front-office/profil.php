@@ -26,7 +26,7 @@
           <div class="l"><svg class="icon" style="width:1.25rem;height:1.25rem"><use href="#i-wallet"/></svg> Porte-monnaie</div>
           <svg class="icon" style="width:1.25rem;height:1.25rem;opacity:.8"><use href="#i-crown"/></svg>
         </div>
-        <div class="wallet-balance"><div class="l">Solde disponible</div><div class="v"><span id="balance"><?= number_format((float) $balance, 2, '.', ' ') ?></span> €</div></div>
+        <div class="wallet-balance"><div class="l">Solde disponible</div><div class="v"><span id="balance"><?= number_format((float) $balance, 0, '.', ' ') ?></span> Ar</div></div>
         <div class="wallet-bubble"></div>
       </div>
       <div class="code-card">
@@ -47,7 +47,7 @@
                   <span class="code"><?= htmlspecialchars($item['code'], ENT_QUOTES, 'UTF-8') ?></span>
                   <span class="date"><?= htmlspecialchars($item['date'], ENT_QUOTES, 'UTF-8') ?></span>
                 </div>
-                <span class="amt">+<?= number_format((float) $item['amount'], 2, '.', ' ') ?> €</span>
+                <span class="amt">+<?= number_format((float) $item['amount'], 0, '.', ' ') ?> Ar</span>
               </li>
             <?php endforeach; ?>
           </ul>

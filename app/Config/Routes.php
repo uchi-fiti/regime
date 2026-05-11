@@ -31,6 +31,9 @@ $routes->get('/confirmation-achat/pdf', 'ConfirmationAchatController::exportPdf'
 
 $routes->post('/wallet/redeem', 'WalletController::redeem');
 
+$routes->get('/confirmation-abonnement', 'AbonnementController::index');
+$routes->post('/confirmation-abonnement', 'AbonnementController::confirmer');
+
 
 // routes back office
 // afficher formulaire de connexion
