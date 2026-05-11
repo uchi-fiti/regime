@@ -44,18 +44,45 @@ $page = $page ?? 'back-office/dashboard';
     </a>
     <nav class="nav-links">
       <a href="<?= base_url('back-office/model_back') ?>">Dashboard</a>
-      <a href="<?= base_url('back-office/model_back?page=recommandation') ?>">Régimes</a>
-      <a href="<?= base_url('back-office/model_back?page=gold') ?>">Gold</a>
-      <a href="<?= base_url('back-office/model_back?page=profil') ?>">Mon profil</a>
+      <a href="<?= base_url('back-office/model_back?page=regime') ?>">Régimes</a>
+      <a href="<?= base_url('back-office/model_back?page=prix-regime') ?>">Prix régimes</a>
+      <a href="<?= base_url('back-office/model_back?page=sport') ?>">Sports</a>
+      <a href="<?= base_url('back-office/model_back?page=abonnement') ?>">Abonnements</a>
+      <a href="<?= base_url('back-office/model_back?page=code') ?>">Codes</a>
+
     </nav>
     <div class="nav-actions">
-      <a href="/" class="btn btn-primary btn-sm">Déconnexion</a>
+      <a href="/back-office/deconnexion" class="btn btn-primary btn-sm">Déconnexion</a>
     </div>
   </div>
 </header>
 
 <!-- include de page -->
-<?= view($page) ?>
+<?php
+// Vérifier si la page est une page avec formulaire et liste
+$pages_with_form_list = ['back-office/regime', 'back-office/prix-regime', 'back-office/sport', 'back-office/abonnement', 'back-office/code'];
+
+if (in_array($page, $pages_with_form_list)) {
+    // Extraire le nom de la page (ex: 'regime' de 'back-office/regime')
+    $page_name = str_replace('back-office/', '', $page);
+    
+    // Afficher le formulaire et la liste
+    $form_view = 'back-office/' . $page_name . '-form';
+    $list_view = 'back-office/' . $page_name . '-list';
+    
+    // Récupérer toutes les variables disponibles
+    $view_data = get_defined_vars();
+    unset($view_data['page_name'], $view_data['pages_with_form_list'], $view_data['form_view'], $view_data['list_view'], $view_data['page']);
+    
+    echo view($form_view, $view_data);
+    echo view($list_view, $view_data);
+} else {
+    // Pour le dashboard ou autres pages
+    $view_data = get_defined_vars();
+    unset($view_data['page'], $view_data['pages_with_form_list']);
+    echo view($page, $view_data);
+}
+?>
 
 <footer>
   <div class="container">
