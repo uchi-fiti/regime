@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use Config\Database;
+use App\Models\SportModel;
+use App\Models\RegimeModel;
+
 
 class Home extends BaseController
 {
@@ -19,13 +22,15 @@ class Home extends BaseController
             // Get result
             $result = $query->getRow();
 
-            /*
-            echo "Database connection successful!<br>";
-            echo "Result: " . $result->test;
-            */
-            
-            // Load the view
-            return view('front-office/index');
+            $sm = new SportModel();
+            $rm = new RegimeModel();
+
+            $sports = $sm->findAll();
+            $regimes = $rm->findAll();
+            return view('front-office/index', [
+                'sports' => $sports,
+                'regimes' => $regimes
+            ]);
 
         } catch (\Throwable $e) {
             echo "Database connection failed!<br>";
