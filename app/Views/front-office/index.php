@@ -41,7 +41,6 @@
       <a href="#objectifs">Objectifs</a>
       <a href="#regimes">Régimes</a>
       <a href="#activite">Activités</a>
-      <a href="#avis">Avis</a>
     </nav>
     <div class="nav-actions">
       <a href="/connection" class="btn-link">Connexion</a>
@@ -61,26 +60,26 @@
         <a href="#regimes" class="btn btn-outline">Découvrir les régimes</a>
       </div>
       <div class="social-proof">
-        <div class="avatars"><span></span><span></span><span></span><span></span></div>
+        <!-- <div class="avatars"><span></span><span></span><span></span><span></span></div>
         <div>
           <div class="stars">
             <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
           </div>
           <p style="font-size:.875rem;color:var(--muted-foreground)">+12 000 utilisateurs satisfaits</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="hero-img-wrap">
       <img src="assets/hero-meal.jpg" alt="Repas équilibré KomGem" width="1536" height="1152" class="hero-img"/>
-      <div class="float-card bl">
+      <!-- <div class="float-card bl">
         <div class="float-icon green"><svg style="width:24px;height:24px"><use href="#i-trend-down"/></svg></div>
         <div><div class="v">-7 kg</div><div class="l">en moyenne / 8 sem.</div></div>
-      </div>
-      <div class="float-card tr">
-        <div class="float-icon orange"><svg style="width:24px;height:24px"><use href="#i-heart-pulse"/></svg></div>
+      </div> -->
+      <!-- <div class="float-card tr"> -->
+        <!-- <div class="float-icon orange"><svg style="width:24px;height:24px"><use href="#i-heart-pulse"/></svg></div>
         <div><div class="v">100% sain</div><div class="l">Validé nutritionniste</div></div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
   </div>
 </section>
 
@@ -114,7 +113,7 @@
       </div>
     </div>
     <div style="text-align:center">
-      <a href="#cta" class="btn btn-primary">Trouver votre IMC</a>
+      <a href="#cta" class="btn btn-primary">Calculer votre IMC</a>
     </div>
   </div>
 </section>
@@ -137,10 +136,25 @@
   <div class="container-narrow">
     <div class="section-title">
       <span class="eyebrow">Étape 3</span>
-      <h2 class="h2">Nos régimes signature</h2>
+      <h2 class="h2">Nos régimes</h2>
       <p class="section-sub">Composés sur mesure : viande, poisson et volaille en parfait équilibre.</p>
     </div>
-    <div class="grid-3" id="regimes-grid"></div>
+    <div class="grid-3">
+      <?php foreach ($regimes as $r) { ?>
+        
+      <div class="regime">
+        <h3><?= $r['label'] ?></h3>
+        <!-- <p class="sub">4 semaines</p> -->
+        <div class="price"><span class="num"><?= $r['variation_poids_journalier'] * 1000?>g</span><span class="sub">/jour</span></div>
+        <ul class="feat">
+          <li><svg><use href="#i-check"/></svg><?= $r['pourcentage_viande']?>% viande</li>
+          <li><svg><use href="#i-check"/></svg><?= $r['pourcentage_poisson']?>% poisson</li>
+          <li><svg><use href="#i-check"/></svg><?= $r['pourcentage_volaille']?>% volaille</li>
+        </ul>
+        <a href="/#cta"><button>Voir les details</button></a>
+      </div>
+    <?php } ?>
+    </div>
     <div class="note">
       <svg><use href="#i-wallet"/></svg> Vous avez un code promo ? Rechargez votre porte-monnaie depuis votre compte.
     </div>
@@ -155,28 +169,26 @@
       <h2 class="h2">Bougez à votre rythme</h2>
       <p class="section-sub" style="text-align:left">Chaque programme est complété par une activité sportive adaptée à votre forme actuelle.</p>
       <div class="act-cards">
-        <div class="act"><span class="emo">🚶‍♀️</span><div><div class="n">Marche rapide</div><div class="m">30 min/jour</div></div></div>
-        <div class="act"><span class="emo">🧘</span><div><div class="n">Yoga doux</div><div class="m">20 min/jour</div></div></div>
-        <div class="act"><span class="emo">💪</span><div><div class="n">Renforcement</div><div class="m">3x semaine</div></div></div>
-        <div class="act"><span class="emo">🏃</span><div><div class="n">Cardio HIIT</div><div class="m">2x semaine</div></div></div>
-      </div>
+        <?php foreach ($sports as $s) { ?>
+          <div class="act"><span class="emo"></span><div><div class="n"><?= $s['label']?></div></div></div>
+        <?php } ?>
     </div>
   </div>
 </section>
 
-<section id="avis">
+<!-- <section id="avis">
   <div class="container-narrow">
     <div class="section-title"><h2 class="h2">Ils ont changé de vie</h2></div>
     <div class="grid-3" id="reviews"></div>
   </div>
-</section>
+</section> -->
 
 <section id="cta" style="padding-top:0">
   <div class="container">
     <div class="cta-wrap">
       <svg><use href="#i-apple"/></svg>
       <h2>Commencez votre transformation aujourd'hui</h2>
-      <p>Inscription en 2 minutes. Sans engagement. Premier bilan IMC offert.</p>
+      <p>Inscription en 2 minutes. Sans engagement.</p>
       <a href="/inscription"><button class="btn">Créer mon compte gratuitement</button></a>
     </div>
   </div>
@@ -189,9 +201,8 @@
         <div class="brand"><span class="brand-mark"><svg class="icon" style="width:1.25rem;height:1.25rem"><use href="#i-leaf"/></svg></span> KomGem</div>
         <p>Votre partenaire nutrition, à vos côtés au quotidien.</p>
       </div>
-      <div class="foot-col"><div class="t">Produit</div><ul><li><a href="#">Régimes</a></li><li><a href="#">Activités</a></li><li><a href="#">Gold</a></li><li><a href="#">Codes promo</a></li></ul></div>
-      <div class="foot-col"><div class="t">Société</div><ul><li><a href="#">À propos</a></li><li><a href="#">Carrières</a></li><li><a href="#">Presse</a></li><li><a href="#">Contact</a></li></ul></div>
-      <div class="foot-col"><div class="t">Légal</div><ul><li><a href="#">CGU</a></li><li><a href="#">Confidentialité</a></li><li><a href="#">Cookies</a></li><li><a href="#">Mentions légales</a></li></ul></div>
+      <div class="foot-col"><div class="t">IMC</div><ul><li><a href="#">Régimes</a></li><li><a href="#">Activités</a></li><li><a href="#">Connection</a></li><li><a href="#">Inscription</a></li></ul></div>
+      
     </div>
     <div class="copyright">© 2026 KomGem — Projet ITU S4 P18 <br> ETU003902 - ETU004025 - ETU004171</div>
 
