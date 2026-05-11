@@ -91,31 +91,12 @@
       <p class="section-sub">Découvrez les catégories d'IMC et trouvez la vôtre pour un programme adapté.</p>
     </div>
     <div class="grid-2" style="margin-bottom:2rem">
-      <div class="imc-category" style="border-bottom:4px solid #3b82f6;border-right:4px solid #3b82f6;border-left:2px solid #3b82f6;border-top:1px solid #3b82f6;padding:1.5rem;background:rgba(59,130,246,0.05);border-radius:0.5rem">
-        <div style="font-weight:600;color:#3b82f6;margin-bottom:0.5rem;font-size:1.1rem">IMC &lt; 18.5</div>
-        <div style="margin-bottom:0.5rem;font-weight:500">Insuffisance pondérale</div>
-        <div style="font-size:0.875rem;color:var(--muted-foreground)">Prise de masse recommandée</div>
+    <?php foreach ($imc as $i) { ?>
+      <div class="imc-category" style="border-bottom:4px solid #9CAF88;border-right:4px solid #9CAF88;border-left:2px solid #9CAF88;border-top:1px solid #9CAF88;padding:1.5rem;background:rgba(156,175,136,0.08);border-radius:0.5rem">
+        <div style="font-weight:600;color:#7a8f5f;margin-bottom:0.5rem;font-size:1.1rem">IMC <?= $i['valeur_debut'] . ' - ' . $i['valeur_fin']?></div>
+        <div style="margin-bottom:0.5rem;font-weight:500"><?= $i['label'] ?></div>
       </div>
-      <div class="imc-category" style="border-bottom:4px solid #10b981;border-right:4px solid #10b981;border-left:2px solid #10b981;border-top:1px solid #10b981;padding:1.5rem;background:rgba(16,185,129,0.05);border-radius:0.5rem">
-        <div style="font-weight:600;color:#10b981;margin-bottom:0.5rem;font-size:1.1rem">IMC 18.5 - 24.9</div>
-        <div style="margin-bottom:0.5rem;font-weight:500">Corpulence normale</div>
-        <div style="font-size:0.875rem;color:var(--muted-foreground)">Poids idéal maintenu</div>
-      </div>
-      <div class="imc-category" style="border-bottom:4px solid #f59e0b;border-right:4px solid #f59e0b;border-left:2px solid #f59e0b;border-top:1px solid #f59e0b;padding:1.5rem;background:rgba(245,158,11,0.05);border-radius:0.5rem">
-        <div style="font-weight:600;color:#f59e0b;margin-bottom:0.5rem;font-size:1.1rem">IMC 25 - 29.9</div>
-        <div style="margin-bottom:0.5rem;font-weight:500">Surpoids</div>
-        <div style="font-size:0.875rem;color:var(--muted-foreground)">Réduction recommandée</div>
-      </div>
-      <div class="imc-category" style="border-bottom:4px solid #ef4444;border-right:4px solid #ef4444;border-left:2px solid #ef4444;border-top:1px solid #ef4444;padding:1.5rem;background:rgba(239,68,68,0.05);border-radius:0.5rem">
-        <div style="font-weight:600;color:#ef4444;margin-bottom:0.5rem;font-size:1.1rem">IMC ≥ 30</div>
-        <div style="margin-bottom:0.5rem;font-weight:500">Obésité</div>
-        <div style="font-size:0.875rem;color:var(--muted-foreground)">Suivi médical conseillé</div>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <a href="#cta" class="btn btn-primary">Calculer votre IMC</a>
-    </div>
-  </div>
+    <?php } ?>
 </section>
 
 <section id="objectifs" class="bg-soft">

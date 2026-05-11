@@ -6,6 +6,8 @@ use CodeIgniter\Controller;
 use Config\Database;
 use App\Models\SportModel;
 use App\Models\RegimeModel;
+use App\Models\TableImcModel;
+
 
 
 class Home extends BaseController
@@ -24,12 +26,16 @@ class Home extends BaseController
 
             $sm = new SportModel();
             $rm = new RegimeModel();
+            $tim = new TableImcModel();
+
 
             $sports = $sm->findAll();
             $regimes = $rm->findAll();
+            $imc = $tim->findAll();
             return view('front-office/index', [
                 'sports' => $sports,
-                'regimes' => $regimes
+                'regimes' => $regimes,
+                'imc' => $imc
             ]);
 
         } catch (\Throwable $e) {
