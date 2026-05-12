@@ -28,7 +28,10 @@ class Auth extends BaseController
      */
     public function information()
     {
-        return view('front-office/information');
+        $fromSignup = (bool) session()->get('from_signup');
+        return view('front-office/information', [
+            'fromSignup' => $fromSignup,
+        ]);
     }
 
     /**
@@ -37,6 +40,8 @@ class Auth extends BaseController
     public function chooseObj()
     {
         $health = session()->get('user_health') ?? [];
+        $fromSignup = (bool) session()->get('from_signup');
+        session()->remove('from_signup');
 
         $imcValue = $health['imc'] ?? 24.2;
         $height = $health['height'] ?? 170;
@@ -47,6 +52,7 @@ class Auth extends BaseController
             'weight' => $health['weight'] ?? 70,
             'height' => $height,
             'recommendedWeight' => $health['recommended_weight'] ?? $this->calculateRecommendedWeight($imcValue, $height),
+            'fromSignup' => $fromSignup,
         ]);
     }
 
@@ -236,6 +242,7 @@ class Auth extends BaseController
                 'role' => $insertData['role'],
             ],
         ]);
+        session()->set('from_signup', true);
 
         return $this->response->setJSON([
             'status' => 'ok',
