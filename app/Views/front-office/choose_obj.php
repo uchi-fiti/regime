@@ -18,6 +18,7 @@ $imcValue = $imcValue ?? 24.2;
 $weight = $weight ?? 70;
 $height = $height ?? 170;
 $recommendedWeight = $recommendedWeight ?? 66;
+$fromSignup = $fromSignup ?? false;
 ?>
 
 <!-- Reusable inline SVG icons -->
@@ -44,7 +45,9 @@ $recommendedWeight = $recommendedWeight ?? 66;
     </div>
 
     <div class="section-title" style="text-align:center;margin-bottom:3rem">
-      <span class="eyebrow">Étape 3</span>
+      <?php if (!empty($fromSignup)): ?>
+        <span class="eyebrow">Etape 3</span>
+      <?php endif; ?>
       <h2 class="h2">Quel est votre objectif?</h2>
       <p class="section-sub">Nous vous recommandons un objectif adapté à votre profil.</p>
     </div>

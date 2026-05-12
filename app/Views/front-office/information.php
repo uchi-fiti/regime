@@ -24,15 +24,24 @@
 <section style="padding:4rem 1rem">
   <div class="container-narrow">
     
-    <!-- Message de bienvenue -->
-    <div style="background:linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);color:white;padding:2rem;border-radius:12px;margin-bottom:3rem;text-align:center">
-      <div style="font-size:1.125rem;margin-bottom:0.5rem">Bienvenue!</div>
-      <h1 class="h2" style="color:white;margin:0">Vous êtes maintenant inscrit</h1>
-      <p style="margin-top:0.5rem;opacity:0.95">Vous allez être en forme. Continuons ensemble!</p>
-    </div>
+    <?php if (!empty($fromSignup)): ?>
+      <div style="background:linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);color:white;padding:2rem;border-radius:12px;margin-bottom:3rem;text-align:center">
+        <div style="font-size:1.125rem;margin-bottom:0.5rem">Bienvenue!</div>
+        <h1 class="h2" style="color:white;margin:0">Vous etes maintenant inscrit</h1>
+        <p style="margin-top:0.5rem;opacity:0.95">Vous allez etre en forme. Continuons ensemble!</p>
+      </div>
+    <?php else: ?>
+      <div style="background:linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);color:white;padding:2rem;border-radius:12px;margin-bottom:3rem;text-align:center">
+        <div style="font-size:1.125rem;margin-bottom:0.5rem">Mettre a jour</div>
+        <h1 class="h2" style="color:white;margin:0">Vos informations sante</h1>
+        <p style="margin-top:0.5rem;opacity:0.95">Ajoutez une nouvelle mesure pour suivre vos progres.</p>
+      </div>
+    <?php endif; ?>
 
     <div class="section-title" style="text-align:center;margin-bottom:2rem">
-      <span class="eyebrow">Étape 2</span>
+      <?php if (!empty($fromSignup)): ?>
+        <span class="eyebrow">Etape 2</span>
+      <?php endif; ?>
       <h2 class="h2">Vos données sanitaires</h2>
       <p class="section-sub">Renseignez votre taille et votre poids pour un calcul d'IMC précis.</p>
     </div>
